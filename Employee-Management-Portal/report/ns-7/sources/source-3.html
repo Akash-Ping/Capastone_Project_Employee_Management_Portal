@@ -1,0 +1,233 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > EmployeeService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.service</a>
+</div>
+
+<h1>Coverage Summary for Class: EmployeeService (com.employee.Employee.Management.Portal.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90%
+  </span>
+  <span class="absValue">
+    (9/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    97.8%
+  </span>
+  <span class="absValue">
+    (44/45)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.service;
+&nbsp;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ApiResponseDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.EmpDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RegisterDto;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Project;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Skills;
+&nbsp;import com.employee.Employee.Management.Portal.entity.User;
+&nbsp;import com.employee.Employee.Management.Portal.repository.ProjectRepository;
+&nbsp;import com.employee.Employee.Management.Portal.repository.SkillsRepository;
+&nbsp;import com.employee.Employee.Management.Portal.repository.UserRepository;
+&nbsp;import jakarta.persistence.EntityNotFoundException;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.security.crypto.password.PasswordEncoder;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;public class EmployeeService {</b>
+&nbsp;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private ProjectRepository projectRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private UserRepository userRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private PasswordEncoder passwordEncoder;
+&nbsp;    @Autowired
+&nbsp;    private SkillsRepository skillsRepository;
+&nbsp;
+&nbsp;
+&nbsp;    public EmpDto getEmployee(final String email) {
+<b class="fc">&nbsp;        User user = userRepository.findByEmail(email).orElse(null);</b>
+&nbsp;
+<b class="fc">&nbsp;        EmpDto resultDto = new EmpDto();</b>
+<b class="fc">&nbsp;        resultDto.setId(user.getId());</b>
+<b class="fc">&nbsp;        resultDto.setEmpId(user.getEmpId());</b>
+<b class="fc">&nbsp;        resultDto.setName(user.getName());</b>
+<b class="fc">&nbsp;        resultDto.setEmail(user.getEmail());</b>
+<b class="fc">&nbsp;        resultDto.setContactNo(user.getContactNo());</b>
+<b class="fc">&nbsp;        resultDto.setDob(user.getDob());</b>
+<b class="fc">&nbsp;        resultDto.setDoj(user.getDoj());</b>
+<b class="fc">&nbsp;        resultDto.setLocation(user.getLocation());</b>
+<b class="fc">&nbsp;        resultDto.setDesignation(user.getDesignation());</b>
+<b class="fc">&nbsp;        Set&lt;String&gt; assignedSkillIds = user.getAssignedSkills().stream()</b>
+<b class="fc">&nbsp;                .map(Skills::getSkillName)</b>
+<b class="fc">&nbsp;                .collect(Collectors.toSet());</b>
+<b class="fc">&nbsp;        resultDto.setAssignedSkills(assignedSkillIds);</b>
+<b class="pc">&nbsp;        if (user.getEmpProjectId() == null) {</b>
+<b class="nc">&nbsp;            resultDto.setProjectName(&quot;N/A&quot;);</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            Optional&lt;Project&gt; project = projectRepository.findById(user.getEmpProjectId());</b>
+<b class="fc">&nbsp;            if (!project.isPresent()) {</b>
+<b class="fc">&nbsp;                throw new RuntimeException(&quot;Project not found&quot;);</b>
+&nbsp;            }
+<b class="fc">&nbsp;            resultDto.setProjectName(project.get().getProjectName());</b>
+&nbsp;        }
+<b class="fc">&nbsp;        User manager = userRepository.findById(user.getEmpManagerId()).orElse(null);</b>
+<b class="fc">&nbsp;        if (manager == null) {</b>
+<b class="fc">&nbsp;            throw new RuntimeException(&quot;Manager not found&quot;);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        resultDto.setManagerName(manager.getName());</b>
+<b class="fc">&nbsp;        return resultDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    // Check for the skills of the employee and update the skills
+&nbsp;    // very verY important
+&nbsp;    public ApiResponseDto updateSkill(final String userId,
+&nbsp;                                      final Set&lt;Long&gt; skillIdsToAdd,
+&nbsp;                                      final Set&lt;Long&gt; skillIdsToRemove) {
+<b class="fc">&nbsp;        User user = userRepository.findByEmpId(userId)</b>
+<b class="fc">&nbsp;                .orElseThrow(() -&gt; new EntityNotFoundException(&quot;User not found with id: &quot; + userId));</b>
+&nbsp;
+&nbsp;        // Add new skills
+<b class="fc">&nbsp;        for (Long skillId : skillIdsToAdd) {</b>
+<b class="fc">&nbsp;            Skills skill = skillsRepository.findById(skillId)</b>
+<b class="fc">&nbsp;                    .orElseThrow(() -&gt; new EntityNotFoundException(&quot;Skill not found with id: &quot; + skillId));</b>
+<b class="fc">&nbsp;            user.getAssignedSkills().add(skill); // Corrected to getAssignedSkills()</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Remove existing skills
+<b class="fc">&nbsp;        for (Long skillId : skillIdsToRemove) {</b>
+<b class="fc">&nbsp;            Skills skill = skillsRepository.findById(skillId)</b>
+<b class="fc">&nbsp;                    .orElseThrow(() -&gt; new EntityNotFoundException(&quot;Skill not found with id: &quot; + skillId));</b>
+<b class="fc">&nbsp;            user.getAssignedSkills().remove(skill); // Corrected to getAssignedSkills()</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Save the updated user entity back to the database
+<b class="fc">&nbsp;        userRepository.save(user);</b>
+&nbsp;
+&nbsp;        // Return appropriate response
+<b class="fc">&nbsp;        return new ApiResponseDto(&quot;User skills updated successfully&quot;); // Provide appropriate response</b>
+&nbsp;
+&nbsp;
+&nbsp;}
+&nbsp;
+&nbsp;    public ApiResponseDto updatePassword(final String email, final RegisterDto registerDto) {
+<b class="fc">&nbsp;        User user = userRepository.findByEmail(email)</b>
+<b class="fc">&nbsp;                .orElseThrow(() -&gt; new EntityNotFoundException(&quot;User not found with email: &quot; + email));</b>
+&nbsp;
+<b class="fc">&nbsp;        String hashedPassword = passwordEncoder.encode(registerDto.getPassword());</b>
+&nbsp;        // Update the password
+<b class="fc">&nbsp;        user.setPassword(hashedPassword);</b>
+&nbsp;
+&nbsp;        // Save the updated user entity back to the database
+<b class="fc">&nbsp;        userRepository.save(user);</b>
+&nbsp;
+&nbsp;        // Return appropriate response
+<b class="fc">&nbsp;        return new ApiResponseDto(&quot;Password updated successfully&quot;); // Provide appropriate response</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-30 14:02</div>
+</div>
+</body>
+</html>

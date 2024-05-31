@@ -1,0 +1,323 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AdminController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: AdminController (com.employee.Employee.Management.Portal.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AdminController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    97.4%
+  </span>
+  <span class="absValue">
+    (76/78)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.controller;
+&nbsp;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ApiResponseDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.AssignProjectDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.AssignProjectOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.FilterDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ManagerOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.UserDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ProjectDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ProjectOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ManagerInfoDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RegisterDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RegisterOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.SkillsOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Skills;
+&nbsp;import com.employee.Employee.Management.Portal.entity.User;
+&nbsp;import com.employee.Employee.Management.Portal.service.AdminService;
+&nbsp;import com.employee.Employee.Management.Portal.service.RegisterService;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.RestController;
+&nbsp;import org.springframework.web.bind.annotation.CrossOrigin;
+&nbsp;import org.springframework.web.bind.annotation.GetMapping;
+&nbsp;import org.springframework.web.bind.annotation.PostMapping;
+&nbsp;import org.springframework.web.bind.annotation.PutMapping;
+&nbsp;import org.springframework.web.bind.annotation.DeleteMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestBody;
+&nbsp;import org.springframework.web.bind.annotation.RequestMapping;
+&nbsp;import org.springframework.web.bind.annotation.PathVariable;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * The controller class for managing employee-related operations.
+&nbsp; */
+&nbsp;@RestController
+&nbsp;@CrossOrigin(&quot;*&quot;)
+&nbsp;@RequestMapping(&quot;/employee&quot;)
+<b class="fc">&nbsp;public class AdminController {</b>
+&nbsp;    /**
+&nbsp;     * Object.
+&nbsp;     */
+&nbsp;    @Autowired
+&nbsp;    private RegisterService registerService;
+&nbsp;    @Autowired
+&nbsp;    private AdminService adminService;
+&nbsp;
+<b class="fc">&nbsp;    private static final Logger logger = LoggerFactory.getLogger(AdminController.class);</b>
+&nbsp;
+&nbsp;    @GetMapping(&quot;/all&quot;)
+&nbsp;    public final List&lt;User&gt; getAllEmployee() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get userDetails controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;User&gt; users = registerService.getUserDetails();</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get userDetails controller&quot;);</b>
+<b class="fc">&nbsp;        return users;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/allSkills&quot;)
+&nbsp;    public final List&lt;Skills&gt; getAllSkills() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all skills controller&quot;);</b>
+<b class="fc">&nbsp;        return registerService.getAllSkills();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping(&quot;/addUser&quot;)
+&nbsp;    public final ApiResponseDto addUser(@RequestBody final RegisterDto registerDto) {
+<b class="fc">&nbsp;        logger.info(&quot;Started add user controller&quot;);</b>
+<b class="fc">&nbsp;        ApiResponseDto response = registerService.addUser(registerDto);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended add user controller&quot;);</b>
+<b class="fc">&nbsp;        return response;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PutMapping(&quot;/update&quot;)
+&nbsp;    public ResponseEntity&lt;ApiResponseDto&gt; updateUser(@RequestBody final RegisterDto updateUserDto) {
+<b class="fc">&nbsp;        logger.info(&quot;Started update user controller&quot;);</b>
+<b class="fc">&nbsp;        ApiResponseDto response = registerService.updateUser(updateUserDto);</b>
+<b class="pc">&nbsp;        if (&quot;Employee not found&quot;.equals(response.getMessage())) {</b>
+<b class="nc">&nbsp;            logger.info(&quot;Employee not found&quot;);</b>
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(response, HttpStatus.NOT_FOUND);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        logger.info(&quot;Ended update user controller&quot;);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @GetMapping(&quot;/getAllEmployees&quot;)
+&nbsp;    public List&lt;RegisterOutDto&gt; getAllEmployees() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all employees controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;RegisterOutDto&gt; employees = adminService.getAllEmployee();</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all employees controller&quot;);</b>
+<b class="fc">&nbsp;        return employees;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @GetMapping(&quot;/Employees/{empId}&quot;)
+&nbsp;    public SkillsOutDto getEmployeesSkill(@PathVariable final String empId) {
+<b class="fc">&nbsp;        logger.info(&quot;Started get employee skill controller&quot;);</b>
+<b class="fc">&nbsp;        SkillsOutDto employees = adminService.getEmployeeId(empId);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get employee skill controller&quot;);</b>
+<b class="fc">&nbsp;        return employees;</b>
+&nbsp;    }
+&nbsp;    @GetMapping(&quot;/getAllEmployeesAndManagers&quot;)
+&nbsp;    public List&lt;RegisterOutDto&gt; getAllEmployeesAndManagers() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all employees and managers controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;RegisterOutDto&gt; employeesAndManagers = adminService</b>
+<b class="fc">&nbsp;                .getAllEmployeeAndManager();</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all employees and managers controller&quot;);</b>
+<b class="fc">&nbsp;        return employeesAndManagers;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/getAllManagers&quot;)
+&nbsp;    public List&lt;ManagerOutDto&gt; getAllManagers() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all managers controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;ManagerOutDto&gt; allManagers = adminService.getAllManagers();</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all managers controller&quot;);</b>
+<b class="fc">&nbsp;        return allManagers;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/getAllManagersInfo&quot;)
+&nbsp;    public List&lt;ManagerInfoDto&gt; getAllManagersInfo() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all managers info controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;ManagerInfoDto&gt; managerInfoList = adminService.getAllManagersInfo();</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all managers info controller&quot;);</b>
+<b class="fc">&nbsp;        return managerInfoList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping(&quot;/addProject&quot;)
+&nbsp;    public ApiResponseDto addProject(@RequestBody final ProjectDto projectDto) {
+<b class="fc">&nbsp;        logger.info(&quot;Started add project controller&quot;);</b>
+<b class="fc">&nbsp;        ApiResponseDto response = adminService.addProject(projectDto);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended add project controller&quot;);</b>
+<b class="fc">&nbsp;        return response;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/getAllProjects&quot;)
+&nbsp;    public List&lt;ProjectDto&gt; getAllProjects() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all projects controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;ProjectDto&gt; projectDtoList = adminService.getAllProjects();</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all projects controller&quot;);</b>
+<b class="fc">&nbsp;        return projectDtoList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/getAllProjectsForAssign&quot;)
+&nbsp;    public List&lt;AssignProjectOutDto&gt; getAllProjectsForAssign() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all projects for assign controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;AssignProjectOutDto&gt; assignProjectOutDtoList = adminService</b>
+<b class="fc">&nbsp;                .getAllProjectsForAssign();</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all projects for assign controller&quot;);</b>
+<b class="fc">&nbsp;        return assignProjectOutDtoList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @GetMapping(&quot;/getAll/project/{managerId}&quot;)
+&nbsp;    public List&lt;ProjectOutDto&gt; getAllByManagerId(@PathVariable final Long managerId) {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all projects by manager id controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;ProjectOutDto&gt; projectOutDtoList = adminService.getAllByManagerId(managerId);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all projects by manager id controller&quot;);</b>
+<b class="fc">&nbsp;        return projectOutDtoList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @PostMapping(&quot;/assignProject&quot;)
+&nbsp;    public ApiResponseDto assignProject(
+&nbsp;             @RequestBody final AssignProjectDto assignProjectDto) {
+<b class="fc">&nbsp;        logger.info(&quot;Started assign project controller&quot;);</b>
+<b class="fc">&nbsp;        ApiResponseDto apiResponseDto = adminService</b>
+<b class="fc">&nbsp;                .assignProject(assignProjectDto);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended assign project controller&quot;);</b>
+<b class="fc">&nbsp;        return apiResponseDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    @PostMapping(&quot;/filter&quot;)
+&nbsp;    public List&lt;UserDto&gt; getFilteredUsers(@RequestBody final FilterDto filterDto) {
+<b class="fc">&nbsp;        logger.info(&quot;Started get filtered users controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;UserDto&gt; filteredUsers = adminService.getFilteredUsers(filterDto);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get filtered users controller&quot;);</b>
+<b class="fc">&nbsp;        return filteredUsers;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PutMapping(&quot;/unassignProject/{empId}&quot;)
+&nbsp;    public ApiResponseDto unassignProject(@PathVariable final String empId) {
+<b class="fc">&nbsp;        logger.info(&quot;Started unassign project controller&quot;);</b>
+<b class="fc">&nbsp;        adminService.unassignProject(empId);</b>
+<b class="fc">&nbsp;       ApiResponseDto apiResponseDto = new ApiResponseDto();</b>
+<b class="fc">&nbsp;        apiResponseDto.setMessage(&quot;Project unassigned successfully&quot;);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended unassign project controller&quot;);</b>
+<b class="fc">&nbsp;        return apiResponseDto;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @DeleteMapping(&quot;/delete/{empId}&quot;)
+&nbsp;    public ApiResponseDto deleteEmployee(@PathVariable final String empId) {
+<b class="fc">&nbsp;        logger.info(&quot;Started delete employee controller&quot;);</b>
+<b class="fc">&nbsp;        adminService.deleteUser(empId);</b>
+<b class="fc">&nbsp;        ApiResponseDto apiResponseDto = new ApiResponseDto();</b>
+<b class="fc">&nbsp;        apiResponseDto.setMessage(&quot;Employee deleted successfully&quot;);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended delete employee controller&quot;);</b>
+<b class="fc">&nbsp;        return apiResponseDto;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-31 18:00</div>
+</div>
+</body>
+</html>

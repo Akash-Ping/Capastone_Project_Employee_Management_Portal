@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="adminDashboardManager.css">
+</head>
+<body>
+   <div class="full-page">
+        <aside class="sidebar-ele">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li data-page="adminDashboard.html">Employee</li>
+                <li class="selected" data-page="adminDashboardManager.html">Manager</li>
+                <li data-page="adminDashboardProject.html">Projects</li>
+            </ul>
+            <button class="logout-btn">Logout</button>
+        </aside>
+        <div class="main-container">
+            <nav class="navbar">
+                <button class="req-btn">Requests</button>
+            </nav>
+            <main class="main-ele">
+                <!-- Manager cards will be displayed here -->
+            </main>
+        </div>
+    </div>
+    <script src="adminDashboardManager.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AppConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.config</a>
+</div>
+
+<h1>Coverage Summary for Class: AppConfig (com.employee.Employee.Management.Portal.config)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AppConfig</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AppConfig$$SpringCGLIB$$0</td>
+  </tr>
+  <tr>
+    <td class="name">AppConfig$$SpringCGLIB$$FastClass$$0</td>
+  </tr>
+  <tr>
+    <td class="name">AppConfig$$SpringCGLIB$$FastClass$$1</td>
+  </tr>
+  <tr>
+    <td class="name">AppConfig$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (21/21)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.config;
+&nbsp;
+&nbsp;
+&nbsp;import jakarta.servlet.http.HttpServletRequest;
+&nbsp;import org.springframework.context.annotation.Bean;
+&nbsp;import org.springframework.context.annotation.Configuration;
+&nbsp;import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+&nbsp;import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+&nbsp;import org.springframework.security.config.http.SessionCreationPolicy;
+&nbsp;import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+&nbsp;import org.springframework.security.crypto.password.PasswordEncoder;
+&nbsp;import org.springframework.security.web.SecurityFilterChain;
+&nbsp;import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+&nbsp;import org.springframework.web.cors.CorsConfiguration;
+&nbsp;import org.springframework.web.cors.CorsConfigurationSource;
+&nbsp;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collections;
+&nbsp;
+&nbsp;@Configuration
+&nbsp;@EnableWebSecurity
+<b class="fc">&nbsp;public class AppConfig {</b>
+&nbsp;
+&nbsp;
+&nbsp;    @Bean
+&nbsp;    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+&nbsp;
+<b class="fc">&nbsp;        http.sessionManagement(management -&gt; management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))</b>
+<b class="fc">&nbsp;                .authorizeHttpRequests(Authorize -&gt; Authorize</b>
+&nbsp;                                // Uncomment and configure role-based access control rules as needed
+&nbsp;//                        .requestMatchers(&quot;/api/admin/**&quot;).hasAnyRole(&quot;RESTAURANT_OWNER&quot;,&quot;ADMIN&quot;)
+&nbsp;//                        .requestMatchers(&quot;/api/**&quot;).authenticated()
+<b class="fc">&nbsp;                                .requestMatchers(&quot;/auth/login&quot;).permitAll()</b>
+<b class="fc">&nbsp;                                .requestMatchers(&quot;/register&quot;).permitAll()</b>
+<b class="fc">&nbsp;                                .anyRequest().authenticated()</b>
+&nbsp;                )
+<b class="fc">&nbsp;                .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)</b>
+<b class="fc">&nbsp;                .csrf(csrf -&gt; csrf.disable())</b>
+<b class="fc">&nbsp;                .cors(cors -&gt; cors.configurationSource(corsConfigurationSource()));</b>
+&nbsp;
+<b class="fc">&nbsp;        return http.build();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // CORS Configuration
+&nbsp;    private CorsConfigurationSource corsConfigurationSource() {
+<b class="fc">&nbsp;        return new CorsConfigurationSource() {</b>
+&nbsp;            @Override
+&nbsp;            public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+<b class="fc">&nbsp;                CorsConfiguration cfg = new CorsConfiguration();</b>
+<b class="fc">&nbsp;                cfg.setAllowedOrigins(Arrays.asList(</b>
+&nbsp;                        // Adjust allowed origins based on your frontend application&#39;s domain
+&nbsp;                        &quot;http://localhost:63342&quot;,
+&nbsp;                        &quot;http://127.0.0.1:5500&quot;,
+&nbsp;                        &quot;http://127.0.0.1:5501&quot;
+&nbsp;                ));
+<b class="fc">&nbsp;                cfg.setAllowedMethods(Collections.singletonList(&quot;*&quot;));</b>
+<b class="fc">&nbsp;                cfg.setAllowCredentials(true);</b>
+<b class="fc">&nbsp;                cfg.setAllowedHeaders(Collections.singletonList(&quot;*&quot;));</b>
+<b class="fc">&nbsp;                cfg.setExposedHeaders(Arrays.asList(&quot;Authorization&quot;));</b>
+<b class="fc">&nbsp;                cfg.setMaxAge(3600L);</b>
+<b class="fc">&nbsp;                return cfg;</b>
+&nbsp;            }
+&nbsp;        };
+&nbsp;    }
+&nbsp;
+&nbsp;    @Bean
+&nbsp;    PasswordEncoder passwordEncoder() {
+<b class="fc">&nbsp;        return new BCryptPasswordEncoder();</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-31 18:00</div>
+</div>
+</body>
+</html>

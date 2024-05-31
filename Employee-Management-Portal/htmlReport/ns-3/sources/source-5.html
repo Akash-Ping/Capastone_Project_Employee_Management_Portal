@@ -1,0 +1,196 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ResourceController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: ResourceController (com.employee.Employee.Management.Portal.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ResourceController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (33/33)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.controller;
+&nbsp;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ApiResponseDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RequestResourceDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RequestedDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RequestedOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RequestResourceManagerProjectDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ResourceRequestsAdminOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.service.RequestResourceService;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.web.bind.annotation.RestController;
+&nbsp;import org.springframework.web.bind.annotation.CrossOrigin;
+&nbsp;import org.springframework.web.bind.annotation.PostMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestBody;
+&nbsp;import org.springframework.web.bind.annotation.GetMapping;
+&nbsp;import org.springframework.web.bind.annotation.PathVariable;
+&nbsp;import org.springframework.web.bind.annotation.DeleteMapping;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@CrossOrigin(&quot;*&quot;)
+<b class="fc">&nbsp;public class ResourceController {</b>
+&nbsp;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private RequestResourceService requestResourceService;
+&nbsp;
+<b class="fc">&nbsp;    private static final Logger logger = LoggerFactory.getLogger(ResourceController.class);</b>
+&nbsp;
+&nbsp;    @PostMapping(&quot;/requestResource/create&quot;)
+&nbsp;    public ApiResponseDto createRequestResource(
+&nbsp;            @RequestBody final RequestResourceDto requestResourceDto) {
+<b class="fc">&nbsp;        logger.info(&quot;Started create request resource controller&quot;);</b>
+<b class="fc">&nbsp;        requestResourceService.createRequestResource(requestResourceDto);</b>
+<b class="fc">&nbsp;        ApiResponseDto apiResponseDto = new ApiResponseDto();</b>
+<b class="fc">&nbsp;        apiResponseDto.setMessage(&quot;Requested resource successfully&quot;);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended create request resource controller&quot;);</b>
+<b class="fc">&nbsp;        return apiResponseDto;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping(&quot;/requestResource/isRequested&quot;)
+&nbsp;    public RequestedOutDto isRequested(
+&nbsp;             @RequestBody final RequestedDto requestedDto) {
+<b class="fc">&nbsp;        logger.info(&quot;Started is requested controller&quot;);</b>
+<b class="fc">&nbsp;        RequestedOutDto requestedOutDto = requestResourceService</b>
+<b class="fc">&nbsp;                .isRequested(requestedDto);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended is requested controller&quot;);</b>
+<b class="fc">&nbsp;        return requestedOutDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/getAll/project/byManager/{email}&quot;)
+&nbsp;    public final List&lt;RequestResourceManagerProjectDto&gt; getAllByManagerEmail(
+&nbsp;            @PathVariable final String email) {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all by manager email controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;RequestResourceManagerProjectDto&gt; projectList = requestResourceService</b>
+<b class="fc">&nbsp;                .getAllByManagerEmail(email);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all by manager email controller&quot;);</b>
+<b class="fc">&nbsp;        return projectList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/requestResource/getAll/requests&quot;)
+&nbsp;    public List&lt;ResourceRequestsAdminOutDto&gt; getAllResourceRequests() {
+<b class="fc">&nbsp;        logger.info(&quot;Started get all resource requests controller&quot;);</b>
+<b class="fc">&nbsp;        List&lt;ResourceRequestsAdminOutDto&gt; outDtoList = requestResourceService</b>
+<b class="fc">&nbsp;                .getAllResourceRequests();</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended get all resource requests controller&quot;);</b>
+<b class="fc">&nbsp;        return outDtoList;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @DeleteMapping(&quot;/requestResource/reject/{id}&quot;)
+&nbsp;    public ApiResponseDto rejectResourceRequest(@PathVariable final Long id) {
+<b class="fc">&nbsp;        logger.info(&quot;Started reject resource request controller&quot;);</b>
+<b class="fc">&nbsp;        requestResourceService.rejectResourceRequest(id);</b>
+<b class="fc">&nbsp;        ApiResponseDto apiResponseDto = new ApiResponseDto();</b>
+<b class="fc">&nbsp;        apiResponseDto.setMessage(&quot;Resource request rejected successfully&quot;);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended reject resource request controller&quot;);</b>
+<b class="fc">&nbsp;        return apiResponseDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping(&quot;/request/accept/{id}&quot;)
+&nbsp;    public final ApiResponseDto acceptRequest(@PathVariable final Long id) {
+<b class="fc">&nbsp;        logger.info(&quot;Started accept request controller&quot;);</b>
+<b class="fc">&nbsp;        ApiResponseDto apiResponseDto = requestResourceService.acceptRequest(id);</b>
+<b class="fc">&nbsp;        logger.info(&quot;Ended accept request controller&quot;);</b>
+<b class="fc">&nbsp;        return apiResponseDto;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-31 18:00</div>
+</div>
+</body>
+</html>

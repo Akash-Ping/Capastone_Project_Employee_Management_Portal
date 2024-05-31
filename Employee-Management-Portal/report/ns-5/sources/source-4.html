@@ -1,0 +1,265 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Skills</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.entity</a>
+</div>
+
+<h1>Coverage Summary for Class: Skills (com.employee.Employee.Management.Portal.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Skills</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.7%
+  </span>
+  <span class="absValue">
+    (11/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (9/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    81.8%
+  </span>
+  <span class="absValue">
+    (18/22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Skills$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Skills$HibernateInstantiator$20dSkFpb</td>
+  </tr>
+  <tr>
+    <td class="name">Skills$HibernateInstantiator$KlxqzyIo</td>
+  </tr>
+  <tr>
+    <td class="name">Skills$HibernateInstantiator$WokZCd3o</td>
+  </tr>
+  <tr>
+    <td class="name">Skills$HibernateProxy$7XWIl4IW</td>
+  </tr>
+  <tr>
+    <td class="name">Skills$HibernateProxy$S2R6Wwz9</td>
+  </tr>
+  <tr>
+    <td class="name">Skills$HibernateProxy$X3H61IwF</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    92.3%
+  </span>
+  <span class="absValue">
+    (12/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (9/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    82.6%
+  </span>
+  <span class="absValue">
+    (19/23)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.entity;
+&nbsp;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonBackReference;
+&nbsp;import jakarta.persistence.Id;
+&nbsp;import jakarta.persistence.GeneratedValue;
+&nbsp;import jakarta.persistence.GenerationType;
+&nbsp;import jakarta.persistence.Column;
+&nbsp;import jakarta.persistence.Entity;
+&nbsp;import jakarta.persistence.ManyToMany;
+&nbsp;import jakarta.persistence.Table;
+&nbsp;import lombok.Getter;
+&nbsp;import lombok.Setter;
+&nbsp;import lombok.ToString;
+&nbsp;import lombok.AllArgsConstructor;
+&nbsp;import org.hibernate.proxy.HibernateProxy;
+&nbsp;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.HashSet;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;@Entity
+&nbsp;@Getter
+&nbsp;@Setter
+<b class="fc">&nbsp;@ToString</b>
+<b class="fc">&nbsp;@AllArgsConstructor</b>
+&nbsp;@Table(name = &quot;skill&quot;)
+&nbsp;public class Skills {
+&nbsp;    @Id
+&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+&nbsp;    private Long id;
+&nbsp;
+&nbsp;    @Column(name = &quot;skill_name&quot;)
+&nbsp;    private String skillName;
+&nbsp;
+<b class="fc">&nbsp;    @JsonBackReference</b>
+&nbsp;    @ManyToMany(mappedBy = &quot;assignedSkills&quot;)
+&nbsp;    @ToString.Exclude
+<b class="fc">&nbsp;    private Set&lt;User&gt; users = new HashSet&lt;&gt;() {</b>
+&nbsp;    };
+&nbsp;
+&nbsp;
+&nbsp;    public Skills() {
+<b class="fc">&nbsp;    super();</b>
+&nbsp;}
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    public Skills(final String skillName) {</b>
+<b class="nc">&nbsp;        this.skillName = skillName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public Long getId() {
+<b class="fc">&nbsp;        return id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setId(final Long id) {
+<b class="fc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getSkillName() {
+<b class="fc">&nbsp;        return skillName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setSkillName(final String skillName) {
+<b class="fc">&nbsp;        this.skillName = skillName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Set&lt;User&gt; getUsers() {
+<b class="fc">&nbsp;        return users;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setUsers(final Set&lt;User&gt; users) {
+<b class="fc">&nbsp;        this.users = users;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public final boolean equals(final Object o) {
+<b class="fc">&nbsp;        if (this == o) return true;</b>
+<b class="fc">&nbsp;        if (o == null) return false;</b>
+<b class="pc">&nbsp;        Class&lt;?&gt; oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o)</b>
+<b class="nc">&nbsp;                .getHibernateLazyInitializer().getPersistentClass() : o.getClass();</b>
+<b class="pc">&nbsp;        Class&lt;?&gt; thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this)</b>
+<b class="nc">&nbsp;                .getHibernateLazyInitializer().getPersistentClass() : this.getClass();</b>
+<b class="fc">&nbsp;        if (thisEffectiveClass != oEffectiveClass) return false;</b>
+<b class="fc">&nbsp;        Skills skills = (Skills) o;</b>
+<b class="pc">&nbsp;        return getId() != null &amp;&amp; Objects.equals(getId(), skills.getId());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;@Override
+&nbsp;public final int hashCode() {
+<b class="fc">&nbsp;    return Objects.hash(id, skillName);</b>
+&nbsp;}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-30 14:02</div>
+</div>
+</body>
+</html>

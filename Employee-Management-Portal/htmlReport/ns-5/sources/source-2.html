@@ -1,0 +1,253 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Resource</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.entity</a>
+</div>
+
+<h1>Coverage Summary for Class: Resource (com.employee.Employee.Management.Portal.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Resource</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71.4%
+  </span>
+  <span class="absValue">
+    (10/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87%
+  </span>
+  <span class="absValue">
+    (20/23)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Resource$HibernateInstantiator$d6abTd28</td>
+  </tr>
+  <tr>
+    <td class="name">Resource$HibernateInstantiator$n5UhPwls</td>
+  </tr>
+  <tr>
+    <td class="name">Resource$HibernateInstantiator$WKXjGsF7</td>
+  </tr>
+  <tr>
+    <td class="name">Resource$HibernateProxy$3LkZsGHr</td>
+  </tr>
+  <tr>
+    <td class="name">Resource$HibernateProxy$IuemYP73</td>
+  </tr>
+  <tr>
+    <td class="name">Resource$HibernateProxy$r2RsHnGw</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71.4%
+  </span>
+  <span class="absValue">
+    (10/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87%
+  </span>
+  <span class="absValue">
+    (20/23)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.entity;
+&nbsp;
+&nbsp;import jakarta.persistence.Entity;
+&nbsp;import jakarta.persistence.Table;
+&nbsp;import jakarta.persistence.Id;
+&nbsp;import jakarta.persistence.GeneratedValue;
+&nbsp;import jakarta.persistence.GenerationType;
+&nbsp;import jakarta.persistence.Column;
+&nbsp;import jakarta.persistence.ManyToOne;
+&nbsp;import jakarta.persistence.JoinColumn;
+&nbsp;import jakarta.persistence.FetchType;
+&nbsp;import lombok.Getter;
+&nbsp;import lombok.Setter;
+&nbsp;import lombok.ToString;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import org.hibernate.proxy.HibernateProxy;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;@Getter
+&nbsp;@Setter
+<b class="fc">&nbsp;@ToString</b>
+<b class="fc">&nbsp;@RequiredArgsConstructor</b>
+&nbsp;@Entity
+&nbsp;@Table(name = &quot;resource&quot;)
+&nbsp;public class Resource {
+&nbsp;    @Id
+&nbsp;    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+&nbsp;    private Long id;
+&nbsp;
+&nbsp;    @Column(name = &quot;comment&quot;, columnDefinition = &quot;TEXT&quot;, nullable = false)
+&nbsp;    private String comment;
+&nbsp;
+&nbsp;
+&nbsp;    @ManyToOne(fetch = FetchType.EAGER)
+&nbsp;    @JoinColumn(name = &quot;manager_id&quot;)
+&nbsp;    private User managerId;
+&nbsp;
+&nbsp;    @ManyToOne(fetch = FetchType.EAGER)
+&nbsp;    @JoinColumn(name = &quot;project_id&quot;)
+&nbsp;    private Project projectId;
+&nbsp;
+&nbsp;    @Column(name = &quot;employee_id&quot;, nullable = false)
+&nbsp;    private Long employeeId;
+&nbsp;
+&nbsp;    public Long getId() {
+<b class="fc">&nbsp;        return id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setId(final Long id) {
+<b class="fc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getComment() {
+<b class="fc">&nbsp;        return comment;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setComment(final String comment) {
+<b class="fc">&nbsp;        this.comment = comment;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public User getManagerId() {
+<b class="fc">&nbsp;        return managerId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setManagerId(final User managerId) {
+<b class="fc">&nbsp;        this.managerId = managerId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Project getProjectId() {
+<b class="fc">&nbsp;        return projectId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setProjectId(final Project projectId) {
+<b class="fc">&nbsp;        this.projectId = projectId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Long getEmployeeId() {
+<b class="fc">&nbsp;        return employeeId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setEmployeeId(final Long employeeId) {
+<b class="fc">&nbsp;        this.employeeId = employeeId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public final boolean equals(final Object o) {
+<b class="fc">&nbsp;        if (this == o) return true;</b>
+<b class="fc">&nbsp;        if (o == null) return false;</b>
+<b class="pc">&nbsp;        Class&lt;?&gt; oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o)</b>
+<b class="nc">&nbsp;                .getHibernateLazyInitializer().getPersistentClass() : o.getClass();</b>
+<b class="pc">&nbsp;        Class&lt;?&gt; thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this)</b>
+<b class="nc">&nbsp;                .getHibernateLazyInitializer().getPersistentClass() : this.getClass();</b>
+<b class="fc">&nbsp;        if (thisEffectiveClass != oEffectiveClass) return false;</b>
+<b class="fc">&nbsp;        Resource resource = (Resource) o;</b>
+<b class="pc">&nbsp;        return getId() != null &amp;&amp; Objects.equals(getId(), resource.getId());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public final int hashCode() {
+<b class="pc">&nbsp;        return this instanceof HibernateProxy ? ((HibernateProxy) this)</b>
+<b class="nc">&nbsp;                .getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-31 18:00</div>
+</div>
+</body>
+</html>

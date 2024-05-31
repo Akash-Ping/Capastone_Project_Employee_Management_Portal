@@ -1,0 +1,266 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > RequestResourceService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.service</a>
+</div>
+
+<h1>Coverage Summary for Class: RequestResourceService (com.employee.Employee.Management.Portal.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RequestResourceService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.5%
+  </span>
+  <span class="absValue">
+    (21/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    98.6%
+  </span>
+  <span class="absValue">
+    (68/69)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.service;
+&nbsp;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RequestedOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RequestedDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RequestResourceDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RequestResourceManagerProjectDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ResourceRequestsAdminOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ApiResponseDto;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Project;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Resource;
+&nbsp;import com.employee.Employee.Management.Portal.entity.User;
+&nbsp;import com.employee.Employee.Management.Portal.repository.ProjectRepository;
+&nbsp;import com.employee.Employee.Management.Portal.repository.ResourceRepository;
+&nbsp;import com.employee.Employee.Management.Portal.repository.UserRepository;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;public class RequestResourceService {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private UserRepository userRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private ResourceRepository resourceRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private ProjectRepository projectRepository;
+&nbsp;
+&nbsp;
+&nbsp;    public void createRequestResource(final RequestResourceDto requestResourceDto) {
+<b class="fc">&nbsp;        Optional&lt;User&gt; employee = userRepository.findByEmpId(requestResourceDto.getEmpId());</b>
+<b class="fc">&nbsp;        Optional&lt;User&gt; managerOptional = userRepository.findByEmail(requestResourceDto.getEmail());</b>
+&nbsp;
+<b class="fc">&nbsp;        if (employee.isPresent() &amp;&amp; managerOptional.isPresent()) {</b>
+<b class="fc">&nbsp;            User manager = managerOptional.get();</b>
+&nbsp;
+<b class="fc">&nbsp;            Resource resource = new Resource();</b>
+<b class="fc">&nbsp;            resource.setEmployeeId(employee.get().getId());</b>
+<b class="fc">&nbsp;            resource.setManagerId(manager); // Set manager directly</b>
+<b class="fc">&nbsp;            resource.setProjectId(projectRepository.findById(requestResourceDto.getProjectId()).orElse(null));</b>
+&nbsp;            // Assuming you have a project repository
+<b class="fc">&nbsp;            resource.setComment(requestResourceDto.getComment());</b>
+&nbsp;
+<b class="fc">&nbsp;            resourceRepository.save(resource);</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            throw new RuntimeException(&quot;Employee or Manager not found&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public RequestedOutDto isRequested(final RequestedDto requestedDto) {
+<b class="fc">&nbsp;        RequestedOutDto requestedOutDto = new RequestedOutDto();</b>
+<b class="fc">&nbsp;        Optional&lt;User&gt; employee = userRepository.findByEmpId(requestedDto.getEmpId());</b>
+<b class="fc">&nbsp;        Optional&lt;User&gt; manager = userRepository.findByEmail(requestedDto.getEmail());</b>
+<b class="fc">&nbsp;        User managerUser = manager.get();</b>
+<b class="fc">&nbsp;        if (resourceRepository.findByEmployeeIdAndManagerId(employee.get().getId(), managerUser) != null) {</b>
+<b class="fc">&nbsp;            requestedOutDto.setRequested(true);</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            requestedOutDto.setRequested(false);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return requestedOutDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;RequestResourceManagerProjectDto&gt; getAllByManagerEmail(final String email) {
+<b class="fc">&nbsp;        Optional&lt;User&gt; manager = userRepository.findByEmail(email);</b>
+&nbsp;//        User managers = userRepository.findById(managerId).orElse(null);
+<b class="fc">&nbsp;        List&lt;Project&gt; projectList = projectRepository.findAllByManager(manager.get());</b>
+<b class="fc">&nbsp;        List&lt;RequestResourceManagerProjectDto&gt; projectOutList = new ArrayList&lt;RequestResourceManagerProjectDto&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;         for (Project project : projectList) {</b>
+<b class="fc">&nbsp;            RequestResourceManagerProjectDto projectOut = new RequestResourceManagerProjectDto();</b>
+<b class="fc">&nbsp;            projectOut.setId(project.getId());</b>
+<b class="fc">&nbsp;            projectOut.setProjectName(project.getProjectName());</b>
+<b class="fc">&nbsp;            projectOutList.add(projectOut);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return projectOutList;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;ResourceRequestsAdminOutDto&gt; getAllResourceRequests() {
+<b class="fc">&nbsp;        List&lt;Resource&gt; requestList = resourceRepository.findAll();</b>
+&nbsp;
+<b class="fc">&nbsp;         if (requestList.isEmpty()) {</b>
+<b class="fc">&nbsp;            throw new RuntimeException(&quot;No requests found&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        List&lt;ResourceRequestsAdminOutDto&gt; outRequestList = new ArrayList&lt;ResourceRequestsAdminOutDto&gt;();</b>
+<b class="fc">&nbsp;         for (Resource resource : requestList) {</b>
+<b class="fc">&nbsp;            ResourceRequestsAdminOutDto outRequest = new ResourceRequestsAdminOutDto();</b>
+&nbsp;
+<b class="fc">&nbsp;            User employee = userRepository.findById(resource.getEmployeeId()).orElse(null);</b>
+<b class="pc">&nbsp;                if (employee == null) {</b>
+<b class="nc">&nbsp;                resourceRepository.deleteById(resource.getId());</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;            User manager = userRepository.findById(resource.getManagerId().getId()).orElse(null);</b>
+&nbsp;
+<b class="fc">&nbsp;            Project project = projectRepository.findById(resource.getProjectId().getId()).orElse(null);</b>
+&nbsp;
+<b class="fc">&nbsp;            outRequest.setEmployeeName(employee.getName());</b>
+<b class="fc">&nbsp;            outRequest.setManagerName(manager.getName());</b>
+<b class="fc">&nbsp;            outRequest.setProjectName(project.getProjectName());</b>
+<b class="fc">&nbsp;            outRequest.setComment(resource.getComment());</b>
+<b class="fc">&nbsp;            outRequest.setId(resource.getId());</b>
+<b class="fc">&nbsp;            outRequest.setEmployeeId(resource.getEmployeeId());</b>
+<b class="fc">&nbsp;            outRequest.setManagerId(resource.getManagerId().getId());</b>
+<b class="fc">&nbsp;            outRequest.setProjectId(resource.getProjectId().getId());</b>
+<b class="fc">&nbsp;            outRequestList.add(outRequest);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return outRequestList;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void rejectResourceRequest(final Long id) {
+<b class="fc">&nbsp;        resourceRepository.deleteById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ApiResponseDto acceptRequest(final Long id) {
+<b class="fc">&nbsp;        Resource resource = resourceRepository.findById(id).orElse(null);</b>
+<b class="fc">&nbsp;            if (resource == null) {</b>
+<b class="fc">&nbsp;            throw new RuntimeException(&quot;Resource not found&quot;);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        User employee = userRepository.findById(resource.getEmployeeId()).orElse(null);</b>
+<b class="fc">&nbsp;        if (employee == null) {</b>
+<b class="fc">&nbsp;            throw new RuntimeException(&quot;Employee not found&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (employee.getEmpProjectId() != null) {</b>
+<b class="fc">&nbsp;            throw new RuntimeException(&quot;Employee already assigned to a project&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        employee.setEmpProjectId(resource.getProjectId().getId());</b>
+<b class="fc">&nbsp;        employee.setEmpManagerId(resource.getManagerId().getId());</b>
+<b class="fc">&nbsp;        userRepository.save(employee);</b>
+<b class="fc">&nbsp;        rejectResourceRequest(id);</b>
+&nbsp;
+<b class="fc">&nbsp;        List&lt;Resource&gt; employeeRequests = resourceRepository.findByEmployeeId(employee.getId());</b>
+<b class="fc">&nbsp;            for (Resource request : employeeRequests) {</b>
+<b class="fc">&nbsp;            rejectResourceRequest(request.getId());</b>
+&nbsp;            }
+<b class="fc">&nbsp;        ApiResponseDto apiResponseDto = new ApiResponseDto();</b>
+<b class="fc">&nbsp;        apiResponseDto.setMessage(&quot;Resource request accepted successfully&quot;);</b>
+<b class="fc">&nbsp;        return apiResponseDto;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-30 14:02</div>
+</div>
+</body>
+</html>
