@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+    <link rel="stylesheet" href="addProject.css">
+</head>
+<body>
+    <div class="add-project-container">
+        <form id="add-project-form">
+            <div class="add-project-group">
+                <label for="project-name">Project Name:</label>
+                <input type="text" id="project-name" name="projectName" required>
+                <div class="error-message" id="project-name-error"></div>
+            </div>
+            <div class="add-project-group">
+                <label for="project-manager">Manager:</label>
+                <select id="project-manager" name="manager" required>
+                    <option value="">Select Manager</option>
+                </select>
+                <div class="error-message" id="manager-error"></div>
+            </div>
+            <div class="add-project-group">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="startDate" required>
+                <div class="error-message" id="start-date-error"></div>
+            </div>
+            <div class="add-project-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+                <div class="error-message" id="description-error"></div>
+            </div>
+            <div class="add-project-actions">
+                <button type="submit">Add Project</button>
+                <button type="button" id="cancel-button">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <script src="addProject.js"></script>
+</body>
+</html>

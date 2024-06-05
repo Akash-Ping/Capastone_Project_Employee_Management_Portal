@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requested Resources</title>
+    <link rel="stylesheet" href="requestResource.css">
+</head>
+<body>
+    <div class="requested-resources-container">
+        <div class="center-section-request">
+            <h1 class="resource-page-heading">Requested Resources</h1>
+            <button class="goback-button" onclick="goBack()">Go Back</button>
+        </div>
+        <table class="resource-table">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Project Name</th>
+                    <th>Manager Name</th>
+                    <th>Comment</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="request-table-body">
+                <!-- Data will be injected here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <script src="requestResource.js"></script>
+</body>
+</html>

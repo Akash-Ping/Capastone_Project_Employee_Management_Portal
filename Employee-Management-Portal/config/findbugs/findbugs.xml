@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+      <Match>
+        <Package name="com.blog.portal.entities" />
+        <Bug pattern="NM_CONFUSING" />
+    </Match>
+     <Match>
+        <Package name="com.blog.portal.responsePayload" />
+        <Bug code="EI" pattern="EI_EXPOSE_REP" />
+    </Match>
+       <Match>
+        <Package name="com.blog.portal.responsePayload" />
+        <Bug code="EI2" pattern="EI_EXPOSE_REP2" />
+    </Match>
+</FindBugsFilter>

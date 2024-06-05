@@ -1,0 +1,452 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AdminService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.service</a>
+</div>
+
+<h1>Coverage Summary for Class: AdminService (com.employee.Employee.Management.Portal.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AdminService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    67.9%
+  </span>
+  <span class="absValue">
+    (38/56)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.5%
+  </span>
+  <span class="absValue">
+    (160/173)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AdminService$$SpringCGLIB$$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    67.9%
+  </span>
+  <span class="absValue">
+    (38/56)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.5%
+  </span>
+  <span class="absValue">
+    (160/173)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.service;
+&nbsp;
+&nbsp;import com.employee.Employee.Management.Portal.dto.RegisterOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ManagerOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ManagerInfoDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ApiResponseDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.AssignProjectDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.AssignProjectOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.FilterDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ProjectDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.ProjectOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.SkillsOutDto;
+&nbsp;import com.employee.Employee.Management.Portal.dto.UserDto;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Project;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Role;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Skills;
+&nbsp;import com.employee.Employee.Management.Portal.entity.User;
+&nbsp;import com.employee.Employee.Management.Portal.repository.ProjectRepository;
+&nbsp;import com.employee.Employee.Management.Portal.repository.UserRepository;
+&nbsp;import jakarta.transaction.Transactional;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.List;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;@SuppressWarnings(&quot;ALL&quot;)
+&nbsp;@Service
+<b class="fc">&nbsp;public class AdminService {</b>
+&nbsp;    @Autowired
+&nbsp;    private UserRepository userRepository;
+&nbsp;    @Autowired
+&nbsp;    private ProjectRepository projectRepository;
+&nbsp;    public List&lt;RegisterOutDto&gt; getAllEmployee() {
+<b class="fc">&nbsp;        List&lt;User&gt; managerEntities = userRepository.findAllByRole(Role.EMPLOYEE);</b>
+<b class="fc">&nbsp;        return convertToRegisterDto(managerEntities);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;RegisterOutDto&gt; getAllEmployeeAndManager() {
+<b class="fc">&nbsp;        List&lt;User&gt; employeeAndManagerEntities = userRepository.findAllByRoleNot(Role.ADMIN);</b>
+<b class="fc">&nbsp;        return convertToRegisterDto(employeeAndManagerEntities);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private List&lt;RegisterOutDto&gt; convertToRegisterDto(final List&lt;User&gt; managerEntities) {
+<b class="fc">&nbsp;        List&lt;RegisterOutDto&gt; registerDtos = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        for (User user : managerEntities) {</b>
+<b class="fc">&nbsp;            RegisterOutDto registerOutDto = new RegisterOutDto();</b>
+<b class="fc">&nbsp;            registerOutDto.setId(user.getId());</b>
+<b class="fc">&nbsp;            registerOutDto.setEmpId(user.getEmpId());</b>
+<b class="fc">&nbsp;            registerOutDto.setName(user.getName());</b>
+<b class="fc">&nbsp;            registerOutDto.setEmail(user.getEmail());</b>
+<b class="fc">&nbsp;            registerOutDto.setContactNo(user.getContactNo());</b>
+<b class="fc">&nbsp;            registerOutDto.setDesignation(user.getDesignation());</b>
+<b class="fc">&nbsp;            registerOutDto.setDob(user.getDob());</b>
+<b class="fc">&nbsp;            registerOutDto.setDoj(user.getDoj());</b>
+<b class="fc">&nbsp;            registerOutDto.setLocation(user.getLocation());</b>
+<b class="fc">&nbsp;            registerOutDto.setEmpProjectId(user.getEmpProjectId());</b>
+<b class="fc">&nbsp;            registerOutDto.setRole(user.getRole());</b>
+<b class="fc">&nbsp;            registerOutDto.setAssignedSkills(user.getAssignedSkills());</b>
+&nbsp;
+&nbsp;
+<b class="pc">&nbsp;            if (user.getEmpManagerId() != null) {</b>
+<b class="nc">&nbsp;                Optional&lt;User&gt; manager = userRepository.findById(user.getEmpManagerId());</b>
+<b class="nc">&nbsp;                if (manager.isPresent()) {</b>
+<b class="nc">&nbsp;                   User managerUser = manager.get();</b>
+<b class="nc">&nbsp;                     registerOutDto.setManagerName(managerUser.getName());</b>
+&nbsp;                     }
+&nbsp;                 }
+&nbsp;
+<b class="pc">&nbsp;            if (user.getEmpProjectId() != null) {</b>
+<b class="nc">&nbsp;                Optional&lt;Project&gt; projectEntity = projectRepository.findById(user.getEmpProjectId());</b>
+&nbsp;
+<b class="nc">&nbsp;                if (projectEntity != null) {</b>
+<b class="nc">&nbsp;                    registerOutDto.setProjectName(projectEntity.get().getProjectName());</b>
+&nbsp;                }
+&nbsp;            }
+<b class="fc">&nbsp;            registerDtos.add(registerOutDto);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return registerDtos;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;ManagerOutDto&gt; getAllManagers() {
+<b class="fc">&nbsp;        List&lt;User&gt; managerEntities = userRepository</b>
+<b class="fc">&nbsp;                .findAllByRole(Role.MANAGER);</b>
+<b class="fc">&nbsp;        return convertToManagerDtoList(managerEntities);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private List&lt;ManagerOutDto&gt; convertToManagerDtoList(final List&lt;User&gt; managerEntities) {
+<b class="fc">&nbsp;        List&lt;ManagerOutDto&gt; managerOutDtos = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        for (User user : managerEntities) {</b>
+<b class="fc">&nbsp;            ManagerOutDto managerOutDto = new ManagerOutDto();</b>
+<b class="fc">&nbsp;            managerOutDto.setId(user.getId());</b>
+<b class="fc">&nbsp;            managerOutDto.setEmpId(user.getEmpId());</b>
+<b class="fc">&nbsp;            managerOutDto.setName(user.getName());</b>
+<b class="fc">&nbsp;            managerOutDto.setEmail(user.getEmail());</b>
+<b class="fc">&nbsp;            managerOutDto.setContactNo(user.getContactNo());</b>
+<b class="fc">&nbsp;            managerOutDto.setDesignation(user.getDesignation());</b>
+<b class="fc">&nbsp;            managerOutDto.setLocation(user.getLocation());</b>
+<b class="fc">&nbsp;            managerOutDtos.add(managerOutDto);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return managerOutDtos;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;ManagerInfoDto&gt; getAllManagersInfo() {
+<b class="fc">&nbsp;        List&lt;User&gt; managerEntities = userRepository</b>
+<b class="fc">&nbsp;                .findAllByRole(Role.MANAGER);</b>
+<b class="fc">&nbsp;        return managerEntities.stream().map(this::convertToManagerInfoDto)</b>
+<b class="fc">&nbsp;                .collect(Collectors.toList());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private ManagerInfoDto convertToManagerInfoDto(final User user) {
+<b class="fc">&nbsp;        ManagerInfoDto managerInfoDto = new ManagerInfoDto();</b>
+<b class="fc">&nbsp;        managerInfoDto.setId(user.getId());</b>
+<b class="fc">&nbsp;        managerInfoDto.setManagerName(user.getName());</b>
+<b class="fc">&nbsp;        managerInfoDto.setManagerEmployeeId(user.getEmpId());</b>
+<b class="fc">&nbsp;        return managerInfoDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ApiResponseDto addProject(final ProjectDto projectDto) {
+&nbsp;
+&nbsp;        // Check if the start date is in the past
+<b class="fc">&nbsp;        LocalDate currentDate = LocalDate.now();</b>
+<b class="fc">&nbsp;        LocalDate startDate = LocalDate.parse(projectDto.getStartDate());</b>
+<b class="fc">&nbsp;        if (startDate.isBefore(currentDate)) {</b>
+<b class="fc">&nbsp;            return new ApiResponseDto(&quot;Start date cannot be in the past&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        Project projectEntity = new Project();</b>
+<b class="fc">&nbsp;        projectEntity.setProjectName(projectDto.getProjectName());</b>
+<b class="fc">&nbsp;        projectEntity.setDescription(projectDto.getDescription());</b>
+<b class="fc">&nbsp;        projectEntity.setStartDate(projectDto.getStartDate());</b>
+<b class="fc">&nbsp;        Optional&lt;User&gt; user = userRepository.findById(projectDto.getManager());</b>
+<b class="fc">&nbsp;        projectEntity.setManager(user.get());</b>
+<b class="fc">&nbsp;        projectRepository.save(projectEntity);</b>
+<b class="fc">&nbsp;        return new ApiResponseDto(&quot;Project added successfully&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;ProjectDto&gt; getAllProjects() {
+<b class="fc">&nbsp;        List&lt;Project&gt; projectEntities = projectRepository.findAll();</b>
+<b class="fc">&nbsp;        List&lt;ProjectDto&gt; projectDtos = convertToProjectDtoList(projectEntities);</b>
+<b class="fc">&nbsp;        return projectDtos;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private List&lt;ProjectDto&gt; convertToProjectDtoList(final List&lt;Project&gt; entities) {
+<b class="fc">&nbsp;        List&lt;ProjectDto&gt; dtos = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        for (Project project : entities) {</b>
+<b class="fc">&nbsp;            ProjectDto projectDto = new ProjectDto();</b>
+<b class="fc">&nbsp;            projectDto.setId(project.getId());</b>
+<b class="fc">&nbsp;            projectDto.setProjectName(project.getProjectName());</b>
+<b class="fc">&nbsp;            projectDto.setDescription(project.getDescription());</b>
+<b class="fc">&nbsp;            projectDto.setStartDate(project.getStartDate());</b>
+<b class="fc">&nbsp;            projectDto.setManager(project.getManager().getId());</b>
+&nbsp;
+<b class="fc">&nbsp;            List&lt;User&gt; teamMembers = userRepository.findAllByEmpProjectId(project.getId());</b>
+<b class="fc">&nbsp;            Optional&lt;User&gt; headEntity = userRepository.findById(project.getManager().getId());</b>
+<b class="pc">&nbsp;            if (headEntity.isPresent()) {</b>
+<b class="nc">&nbsp;                projectDto.setHead(headEntity.get().getName());</b>
+&nbsp;            }
+<b class="fc">&nbsp;            List&lt;String&gt; teamMemberNames = new ArrayList&lt;&gt;();</b>
+<b class="pc">&nbsp;            for (User teamMember : teamMembers) {</b>
+<b class="nc">&nbsp;                teamMemberNames.add(teamMember.getName());</b>
+&nbsp;            }
+<b class="fc">&nbsp;            projectDto.setTeamMembers(teamMemberNames);</b>
+<b class="fc">&nbsp;            dtos.add(projectDto);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return dtos;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;AssignProjectOutDto&gt; getAllProjectsForAssign() {
+<b class="fc">&nbsp;        List&lt;Project&gt; projectEntities = projectRepository.findAll();</b>
+<b class="fc">&nbsp;       List&lt;AssignProjectOutDto&gt; assignProjectOutDtos = projectEntities.stream().map(project -&gt; {</b>
+<b class="fc">&nbsp;            AssignProjectOutDto assignProjectOutDto = new AssignProjectOutDto();</b>
+<b class="fc">&nbsp;            assignProjectOutDto.setId(project.getId());</b>
+<b class="fc">&nbsp;            assignProjectOutDto.setProjectName(project.getProjectName());</b>
+<b class="fc">&nbsp;            return assignProjectOutDto;</b>
+<b class="fc">&nbsp;        }).collect(Collectors.toList());</b>
+<b class="fc">&nbsp;       return assignProjectOutDtos;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public List&lt;ProjectOutDto&gt; getAllByManagerId(final Long managerId) {
+&nbsp;        // Fetch the manager entity by ID
+<b class="fc">&nbsp;        User manager = userRepository.findById(managerId).orElse(null);</b>
+&nbsp;
+<b class="fc">&nbsp;        List&lt;ProjectOutDto&gt; projectOutDtos = new ArrayList&lt;ProjectOutDto&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;        if (manager != null) {</b>
+&nbsp;            // Query projects by manager ID
+<b class="fc">&nbsp;            List&lt;Project&gt; projectEntities = projectRepository.findAllByManager(manager);</b>
+&nbsp;
+<b class="fc">&nbsp;            for (Project project : projectEntities) {</b>
+<b class="fc">&nbsp;                ProjectOutDto projectOutDto = new ProjectOutDto();</b>
+<b class="fc">&nbsp;                projectOutDto.setId(project.getId());</b>
+<b class="fc">&nbsp;                projectOutDto.setProjectName(project.getProjectName());</b>
+&nbsp;                // Convert manager ID to string
+<b class="fc">&nbsp;                projectOutDto.setManager(String.valueOf(managerId));</b>
+&nbsp;//                projectOutDto.setManager(project.getManager() + &quot;&quot;);
+<b class="fc">&nbsp;                projectOutDto.setDescription(project.getDescription());</b>
+<b class="fc">&nbsp;                projectOutDto.setStartDate(project.getStartDate());</b>
+&nbsp;
+&nbsp;                // Fetch team members for the project
+<b class="fc">&nbsp;                List&lt;User&gt; teamMembers = userRepository.findAllByEmpProjectId(project.getId());</b>
+&nbsp;
+<b class="fc">&nbsp;                List&lt;String&gt; teamMemberNames = new ArrayList&lt;&gt;();</b>
+<b class="pc">&nbsp;                for (User teamMember : teamMembers) {</b>
+<b class="nc">&nbsp;                    teamMemberNames.add(teamMember.getName());</b>
+&nbsp;                }
+<b class="fc">&nbsp;                projectOutDto.setTeamMembers(teamMemberNames);</b>
+<b class="fc">&nbsp;                projectOutDtos.add(projectOutDto);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return projectOutDtos;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ApiResponseDto assignProject(final AssignProjectDto assignProjectDto) {
+<b class="fc">&nbsp;        User user = userRepository.findByEmpId(assignProjectDto.getEmpId()).orElse(null);</b>
+<b class="fc">&nbsp;        Optional&lt;Project&gt; project = projectRepository.findById(assignProjectDto.getId());</b>
+<b class="fc">&nbsp;        user.setEmpManagerId(project.get().getManager().getId());</b>
+<b class="fc">&nbsp;        user.setEmpProjectId(assignProjectDto.getId());</b>
+<b class="fc">&nbsp;        userRepository.save(user);</b>
+&nbsp;
+<b class="fc">&nbsp;        return new ApiResponseDto(&quot;Project assigned successfully&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void unassignProject(final String empId) {
+<b class="fc">&nbsp;        User employee = userRepository.findByEmpId(empId).orElse(null);</b>
+<b class="fc">&nbsp;        User admin = userRepository.findByRole(Role.ADMIN).orElse(null);</b>
+<b class="fc">&nbsp;        employee.setEmpProjectId(null);</b>
+<b class="fc">&nbsp;        employee.setEmpManagerId(admin.getId());</b>
+<b class="fc">&nbsp;        userRepository.save(employee);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Transactional
+&nbsp;    public void deleteUser(final String empId) {
+<b class="fc">&nbsp;        userRepository.deleteByEmpId(empId);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public SkillsOutDto getEmployeeId(final String empId) {
+<b class="fc">&nbsp;        User employee = userRepository.findByEmpId(empId).orElse(null);</b>
+<b class="fc">&nbsp;        SkillsOutDto skillsOutDto = new SkillsOutDto();</b>
+<b class="fc">&nbsp;        if (employee != null) {</b>
+<b class="fc">&nbsp;            skillsOutDto.setAssignedSkills(employee.getAssignedSkills());</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return skillsOutDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    // Servic for Update Employee
+&nbsp;    public List&lt;UserDto&gt; getFilteredUsers(final FilterDto filterDto) {
+<b class="fc">&nbsp;        List&lt;User&gt; userList = userRepository.findAllByRole(Role.EMPLOYEE);</b>
+<b class="fc">&nbsp;        List&lt;UserDto&gt; userDtoList = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;        for (User user : userList) {</b>
+<b class="fc">&nbsp;            UserDto userDto = new UserDto();</b>
+<b class="fc">&nbsp;            userDto.setName(user.getName());</b>
+<b class="fc">&nbsp;            userDto.setEmail(user.getEmail());</b>
+<b class="fc">&nbsp;            userDto.setEmpId(user.getEmpId());</b>
+<b class="fc">&nbsp;            userDto.setDesignation(user.getDesignation());</b>
+<b class="fc">&nbsp;            userDto.setContactNo(user.getContactNo());</b>
+<b class="fc">&nbsp;            userDto.setDob(user.getDob());</b>
+<b class="fc">&nbsp;            userDto.setDoj(user.getDoj());</b>
+<b class="fc">&nbsp;            userDto.setLocation(user.getLocation());</b>
+<b class="fc">&nbsp;            Set&lt;String&gt; skillNames = user.getAssignedSkills().stream()</b>
+<b class="fc">&nbsp;                    .map(Skills::getSkillName) // Extracting skill names</b>
+<b class="fc">&nbsp;                    .collect(Collectors.toSet()); // Collecting them into a set</b>
+<b class="fc">&nbsp;            userDto.setAssignedSkills(skillNames);</b>
+&nbsp;
+<b class="fc">&nbsp;            if (user.getEmpProjectId() == null) {</b>
+<b class="fc">&nbsp;                userDto.setProjectName(&quot;N/A&quot;);</b>
+<b class="fc">&nbsp;                userDto.setProjectId(null); // Adjusted to set null for projectId</b>
+&nbsp;            } else {
+<b class="fc">&nbsp;                Project project = projectRepository.findById(user.getEmpProjectId()).orElse(null);</b>
+<b class="pc">&nbsp;                if (project != null) {</b>
+<b class="fc">&nbsp;                    userDto.setProjectName(project.getProjectName());</b>
+<b class="fc">&nbsp;                    userDto.setProjectId(user.getEmpProjectId());</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                    userDto.setProjectName(&quot;N/A&quot;);</b>
+<b class="nc">&nbsp;                    userDto.setProjectId(null); // Adjusted to set null for projectId</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;            User manager = userRepository.findById(user.getEmpManagerId()).orElse(null);</b>
+<b class="fc">&nbsp;            if (manager != null) {</b>
+<b class="fc">&nbsp;                userDto.setManagerName(manager.getName());</b>
+&nbsp;            } else {
+<b class="fc">&nbsp;                userDto.setManagerName(&quot;N/A&quot;);</b>
+&nbsp;            }
+&nbsp;
+<b class="pc">&nbsp;            if (filterDto.getSkills() == null || filterDto.getSkills().isEmpty()) {</b>
+<b class="pc">&nbsp;                if (filterDto.getChecked() &amp;&amp; userDto.getProjectName().equals(&quot;N/A&quot;)) {</b>
+<b class="nc">&nbsp;                    userDtoList.add(userDto);</b>
+<b class="pc">&nbsp;                } else if (!filterDto.getChecked()) {</b>
+<b class="fc">&nbsp;                    userDtoList.add(userDto);</b>
+&nbsp;                }
+&nbsp;            } else {
+<b class="fc">&nbsp;                boolean hasMatchingSkills = user.getAssignedSkills().stream()</b>
+<b class="fc">&nbsp;                        .map(Skills::getSkillName) // Extracting skill names</b>
+<b class="fc">&nbsp;                        .anyMatch(skillName -&gt; filterDto.getSkills().contains(skillName));</b>
+<b class="pc">&nbsp;                if (filterDto.getChecked() &amp;&amp; hasMatchingSkills &amp;&amp; userDto.getProjectName().equals(&quot;N/A&quot;)) {</b>
+<b class="fc">&nbsp;                    userDtoList.add(userDto);</b>
+<b class="pc">&nbsp;                } else if (!filterDto.getChecked() &amp;&amp; hasMatchingSkills) {</b>
+<b class="fc">&nbsp;                    userDtoList.add(userDto);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return userDtoList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-06-05 19:42</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > UserRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.employee.Employee.Management.Portal.repository</a>
+</div>
+
+<h1>Coverage Summary for Class: UserRepository (com.employee.Employee.Management.Portal.repository)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">UserRepository$MockitoMock$Pz6NorxW</td>
+  </tr>
+  <tr>
+    <td class="name">UserRepository$MockitoMock$Pz6NorxW$auxiliary$iMTtxfH2</td>
+  </tr>
+  <tr>
+    <td class="name">UserRepository$MockitoMock$Pz6NorxW$auxiliary$otILz1Hn</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.employee.Employee.Management.Portal.repository;
+&nbsp;
+&nbsp;import com.employee.Employee.Management.Portal.entity.Role;
+&nbsp;import com.employee.Employee.Management.Portal.entity.User;
+&nbsp;import org.springframework.data.jpa.repository.JpaRepository;
+&nbsp;import org.springframework.stereotype.Repository;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@Repository
+&nbsp;public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+&nbsp;
+&nbsp;    Optional&lt;User&gt; findByRole(Role role);
+&nbsp;
+&nbsp;    Optional&lt;User&gt; findByEmail(String email);
+&nbsp;
+&nbsp;    List&lt;User&gt; findAllByRole(Role role);
+&nbsp;
+&nbsp;    List&lt;User&gt; findAllByRoleNot(Role role);
+&nbsp;
+&nbsp;
+&nbsp;    List&lt;User&gt; findAllByEmpProjectId(Long empProjectId);
+&nbsp;
+&nbsp;    Optional&lt;User&gt; findByEmpId(String empId);
+&nbsp;
+&nbsp;    void deleteByEmpId(String empId);
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-27 11:01</div>
+</div>
+</body>
+</html>

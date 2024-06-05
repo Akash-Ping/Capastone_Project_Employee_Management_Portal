@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="managerDashboard.css">
+</head>
+<body>
+    <div class="full-page">
+        <aside class="sidebar-ele">
+            <h2>Manager Dashboard</h2>
+            <ul>
+                <li class="selected" data-page="managerDashboard.html">
+                    <i class="fas fa-user"></i> Employee
+                </li>
+                <li data-page="managerDashboardAllmanager.html">
+                    <i class="fas fa-user-tie"></i> Manager
+                </li>
+                <li data-page="managerDashboardProject.html">
+                    <i class="fas fa-project-diagram"></i> Projects
+                </li>
+            </ul>
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </aside>
+        <div class="main-container">
+            <nav class="navbar">
+                <div class="search-bar">
+                    <input type="text" id="skill-search" placeholder="Select Skills">
+                    <div id="skill-dropdown" class="dropdown-content"></div>
+                </div>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="show-unassigned" class="checkbox-input">
+                    Unassigned
+                </label>
+                <button class="search-btn">Search</button>
+            </nav>
+            <main class="main-ele">
+                <!-- Employee cards will be displayed here -->
+            </main>
+        </div>
+    </div>
+    <script src="managerDashboard.js"></script>
+</body>
+</html>

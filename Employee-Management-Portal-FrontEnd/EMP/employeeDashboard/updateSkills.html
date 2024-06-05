@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Skills</title>
+    <link rel="stylesheet" href="updateSkill.css">
+</head>
+<body>
+    <div class="update-skills-container">
+        <button id="close-button" class="close-button">&times;</button>
+        <h1 class="update-skills-heading">Update Skills</h1>
+        <div class="update-skills-description">Modify your skills below:</div>
+
+        <div class="update-skills-current">
+            <h3 class="update-skills-subheading">Current Skills</h3>
+            <div id="current-skills-list"></div>
+        </div>
+
+        <div class="update-skills-add">
+            <h3 class="update-skills-subheading">Add New Skills</h3>
+            <select id="skill-select" class="skill-select">
+                <option value="">Select a skill</option>
+            </select>
+            <p id="error-message" class="error-message"></p>
+            <button id="add-skill-button" class="add-skill-button">Add Skill</button>
+        </div>
+
+        <button id="update-button" class="update-button">Update Skills and Go Back</button>
+    </div>
+
+    <script src="updateSkills.js"></script>
+</body>
+</html>
