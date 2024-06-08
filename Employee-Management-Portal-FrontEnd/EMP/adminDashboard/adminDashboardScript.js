@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
+             // **Change 1: Sort employees by id**
+             data.sort((a, b) => a.id - b.id);
             displayEmployees(data);
         })
         .catch(error => console.error('Error fetching employees:', error));
