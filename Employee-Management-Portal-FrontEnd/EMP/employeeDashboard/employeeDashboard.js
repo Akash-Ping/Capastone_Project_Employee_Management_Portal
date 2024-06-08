@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('emp-skills').textContent = employee.assignedSkills.join(', ');
 
         // Store employee ID in localStorage
-        localStorage.setItem('empId', employee.empId);
+        // localStorage.setItem('empId', employee.empId);
     }
 
     function formatDate(dateString) {

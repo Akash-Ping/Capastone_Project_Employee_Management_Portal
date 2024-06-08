@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    const empId = localStorage.getItem('empId');
+    // const empId = localStorage.getItem('empId');
     const currentSkillsList = document.getElementById('current-skills-list');
     const skillSelect = document.getElementById('skill-select');
     const errorMessage = document.getElementById('error-message');
@@ -29,13 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    if (!empId) {
-        alert('Employee ID not found.');
+    const userEmail = payload.email;
+
+    if (!userEmail) {
+        alert('User email not found.');
         return;
     }
 
+    // if (!empId) {
+    //     alert('Employee ID not found.');
+    //     return;
+    // }
+
     // Fetch employee's assigned skills
-    fetch(`http://localhost:8080/employee/Employees/${empId}`, {
+    fetch(`http://localhost:8080/employee/Employees/${userEmail}`, {
         headers: {
             'Authorization': `Bearer ${jwtToken}`
         }
@@ -122,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             skillIdsToRemove: allSkills.filter(skill => !currentSkills.includes(skill.skillName)).map(skill => skill.id)
         };
 
-        fetch(`http://localhost:8080/api/employee/${empId}/updateskills`, {
+        fetch(`http://localhost:8080/api/employee/${userEmail}/updateskills`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
