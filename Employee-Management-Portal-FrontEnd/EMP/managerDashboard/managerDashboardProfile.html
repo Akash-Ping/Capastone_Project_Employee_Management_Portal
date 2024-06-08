@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="managerDashboardProfile.css">
+</head>
+<body>
+    <div class="full-page">
+        <aside class="sidebar-ele">
+            <h2>Manager Dashboard</h2>
+            <ul>
+                <li class="selected" data-page="managerDashboardProfile.html">
+                    <i class="fas fa-user-circle"></i> Profile
+                </li>
+                <li data-page="managerDashboard.html">
+                    <i class="fas fa-user"></i> Employee
+                </li>
+                <li data-page="managerDashboardAllmanager.html">
+                    <i class="fas fa-user-tie"></i> Manager
+                </li>
+                <li data-page="managerDashboardProject.html">
+                    <i class="fas fa-project-diagram"></i> Projects
+                </li>
+            </ul>
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </aside>
+        <div class="main-container">
+            <nav class="navbar">
+                <!-- Add any specific navbar content here, like a logo or additional links -->
+            </nav>
+            <div class="employee-details-container">
+                <h1>Manager Details</h1>
+                <form class="employee-details-form">
+                    <div class="left-section">
+                        <div class="form-group">
+                            <label for="emp-id">Employee ID:</label>
+                            <span class="emp-detail" id="emp-id"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="emp-name">Name:</label>
+                            <span class="emp-detail" id="emp-name"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="emp-doj">Date of Joining:</label>
+                            <span class="emp-detail" id="emp-doj"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="emp-email">Email:</label>
+                            <span class="emp-detail" id="emp-email"></span>
+                        </div>
+                    </div>
+                    <div class="right-section">
+                        <div class="form-group">
+                            <label for="emp-contact">Contact:</label>
+                            <span class="emp-detail" id="emp-contact"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="emp-designation">Designation:</label>
+                            <span class="emp-detail" id="emp-designation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="emp-location">Location:</label>
+                            <span class="emp-detail" id="emp-location"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="emp-skills">Skills:</label>
+                            <span class="emp-detail" id="emp-skills"></span>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    <script src="managerDashboardProfile.js"></script>
+    <script src="sidebar.js"></script>
+</body>
+</html>

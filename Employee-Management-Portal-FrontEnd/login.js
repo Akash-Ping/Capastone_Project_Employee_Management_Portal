@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         window.location.href = '/EMP/adminDashboard/adminDashboard.html';
                         break;
                     case 'MANAGER':
-                        window.location.href = '/EMP/managerDashboard/managerDashboard.html';
+                        window.location.href = '/EMP/managerDashboard/managerDashboardProfile.html';
                         break;
                     case 'EMPLOYEE':
                         window.location.href = '/EMP/employeeDashboard/employeeDashboard.html';
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = '/EMP/adminDashboard/adminDashboard.html';
                 break;
             case 'MANAGER':
-                window.location.href = '/EMP/managerDashboard/managerDashboard.html';
+                window.location.href = '/EMP/managerDashboard/managerDashboardProfile.html';
                 break;
             case 'EMPLOYEE':
                 window.location.href = '/EMP/employeeDashboard/employeeDashboard.html';

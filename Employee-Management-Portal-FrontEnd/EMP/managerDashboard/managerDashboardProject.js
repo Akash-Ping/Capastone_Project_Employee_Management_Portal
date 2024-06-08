@@ -87,10 +87,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Add button redirection
-    const addButton = document.querySelector('.add-btn');
-    addButton.addEventListener('click', function () {
-        window.location.href = 'addProject.html';
-    });
+    // const addButton = document.querySelector('.add-btn');
+    // addButton.addEventListener('click', function () {
+    //     window.location.href = 'addProject.html';
+    // });
 
     // Sidebar navigation
     const sidebarItems = document.querySelectorAll('.sidebar-ele li');
