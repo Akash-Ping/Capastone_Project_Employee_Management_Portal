@@ -37,12 +37,12 @@ public class EmployeeController {
     }
 
 
-    @PutMapping("/{userId}/updateskills")
-    public ApiResponseDto updateSkillsOfEmployee(@PathVariable final String userId,
+    @PutMapping("/{email}/updateskills")
+    public ApiResponseDto updateSkillsOfEmployee(@PathVariable final String email,
                                                  @RequestBody final UpdateSkillDto updateSkillDto) {
         logger.info("Started update skills of employee controller");
         ApiResponseDto apiResponseDto = employeeService
-                .updateSkill(userId, updateSkillDto.getSkillIdsToAdd(), updateSkillDto.getSkillIdsToRemove());
+                .updateSkill(email, updateSkillDto.getSkillIdsToAdd(), updateSkillDto.getSkillIdsToRemove());
         logger.info("Ended update skills of employee controller");
         return apiResponseDto;
     }

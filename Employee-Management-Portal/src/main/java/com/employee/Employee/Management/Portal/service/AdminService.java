@@ -243,8 +243,8 @@ public class AdminService {
         userRepository.deleteByEmpId(empId);
     }
 
-    public SkillsOutDto getEmployeeId(final String empId) {
-        User employee = userRepository.findByEmpId(empId).orElse(null);
+    public SkillsOutDto getEmployeeId(final String email) {
+        User employee = userRepository.findByEmail(email).orElse(null);
         SkillsOutDto skillsOutDto = new SkillsOutDto();
         if (employee != null) {
             skillsOutDto.setAssignedSkills(employee.getAssignedSkills());

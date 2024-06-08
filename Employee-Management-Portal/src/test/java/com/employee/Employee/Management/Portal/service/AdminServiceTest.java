@@ -724,7 +724,7 @@ public class AdminServiceTest {
     void testGetEmployeeId_EmployeeFound() {
         // Mock the UserRepository to return an employee with assigned skills
         User employee = new User();
-        employee.setEmpId("E001");
+        employee.setEmail("abc@nucleusteq.com");
 
         // Set up the skill names as strings
         Set<String> expectedSkillNames = new HashSet<>();
@@ -737,10 +737,10 @@ public class AdminServiceTest {
         // Set the assigned skills
         employee.setAssignedSkills(skillsSet);
 
-        when(userRepository.findByEmpId("E001")).thenReturn(Optional.of(employee));
+        when(userRepository.findByEmail("abc@nucleusteq.com")).thenReturn(Optional.of(employee));
 
         // Call the method under test
-        SkillsOutDto result = adminService.getEmployeeId("E001");
+        SkillsOutDto result = adminService.getEmployeeId("abc@nucleusteq.com");
 
         // Extract the skill names from the Skills objects in the result
         Set<String> actualSkillNames = result.getAssignedSkills().stream()
@@ -770,12 +770,12 @@ public class AdminServiceTest {
     void testGetEmployeeId_EmployeeWithNoAssignedSkills() {
         // Mock the UserRepository to return an employee with no assigned skills
         User employee = new User();
-        employee.setEmpId("E001");
+        employee.setEmail("abc@nucleusteq.com");
         employee.setAssignedSkills(Collections.emptySet()); // Use empty set instead of empty list
-        when(userRepository.findByEmpId("E001")).thenReturn(Optional.of(employee));
+        when(userRepository.findByEmail("abc@nucleusteq.com")).thenReturn(Optional.of(employee));
 
         // Call the method under test
-        SkillsOutDto result = adminService.getEmployeeId("E001");
+        SkillsOutDto result = adminService.getEmployeeId("abc@nucleusteq.com");
 
         // Assert that the returned SkillsOutDto contains an empty list of assigned skills
         assertTrue(result.getAssignedSkills().isEmpty());

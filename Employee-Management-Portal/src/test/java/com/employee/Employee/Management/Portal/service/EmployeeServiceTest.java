@@ -172,7 +172,7 @@ public class EmployeeServiceTest {
     @Test
     void testUpdateSkill() {
         User user = new User();
-        user.setEmpId("E001");
+        user.setEmail("abc@nucleusteq.com");
         user.setAssignedSkills(new HashSet<>()); // Use mutable set instead of immutable empty set
 
         Skills skillToAdd = new Skills();
@@ -183,11 +183,11 @@ public class EmployeeServiceTest {
         skillToRemove.setId(2L);
         skillToRemove.setSkillName("Python");
 
-        when(userRepository.findByEmpId("E001")).thenReturn(Optional.of(user));
+        when(userRepository.findByEmail("abc@nucleusteq.com")).thenReturn(Optional.of(user));
         when(skillsRepository.findById(1L)).thenReturn(Optional.of(skillToAdd));
         when(skillsRepository.findById(2L)).thenReturn(Optional.of(skillToRemove));
 
-        ApiResponseDto response = employeeService.updateSkill("E001", Set.of(1L), Set.of(2L));
+        ApiResponseDto response = employeeService.updateSkill("abc@nucleusteq.com", Set.of(1L), Set.of(2L));
 
         assertNotNull(response);
         assertEquals("User skills updated successfully", response.getMessage());
@@ -208,14 +208,14 @@ public class EmployeeServiceTest {
     @Test
     void testUpdateSkill_SkillToAddNotFound() {
         User user = new User();
-        user.setEmpId("E001");
+        user.setEmail("abc@nucleusteq.com");
         user.setAssignedSkills(Collections.emptySet());
 
-        when(userRepository.findByEmpId("E001")).thenReturn(Optional.of(user));
+        when(userRepository.findByEmail("abc@nucleusteq.com")).thenReturn(Optional.of(user));
         when(skillsRepository.findById(1L)).thenReturn(Optional.empty());
 
         EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
-            employeeService.updateSkill("E001", Set.of(1L), Set.of(2L));
+            employeeService.updateSkill("abc@nucleusteq.com", Set.of(1L), Set.of(2L));
         });
 
         assertEquals("Skill not found with id: 1", exception.getMessage());
@@ -225,7 +225,7 @@ public class EmployeeServiceTest {
     void testUpdateSkill_SkillToRemoveNotFound() {
         // Mock user data
         User user = new User();
-        user.setEmpId("E001");
+        user.setEmail("abc@nucleusteq.com");
         user.setAssignedSkills(Collections.emptySet());
 
         // Mock skill to add
@@ -234,7 +234,7 @@ public class EmployeeServiceTest {
         skillToAdd.setSkillName("Java");
 
         // Mock UserRepository behavior
-        when(userRepository.findByEmpId("E001")).thenReturn(Optional.of(user));
+        when(userRepository.findByEmail("abc@nucleusteq.com")).thenReturn(Optional.of(user));
 
         // Mock skill to remove not found in repository
         when(skillsRepository.findById(1L)).thenReturn(Optional.of(skillToAdd));
@@ -242,7 +242,7 @@ public class EmployeeServiceTest {
 
         // Call the method under test and assert the exception
         Throwable exception = assertThrows(UnsupportedOperationException.class, () -> {
-            employeeService.updateSkill("E001", Set.of(1L), Set.of(2L));
+            employeeService.updateSkill("abc@nucleusteq.com", Set.of(1L), Set.of(2L));
         });
 
         // Verify that the exception message is correct

@@ -94,10 +94,10 @@ public class AdminController {
     }
 
 
-    @GetMapping("/Employees/{empId}")
-    public SkillsOutDto getEmployeesSkill(@PathVariable final String empId) {
+    @GetMapping("/Employees/{email}")
+    public SkillsOutDto getEmployeesSkill(@PathVariable final String email) {
         logger.info("Started get employee skill controller");
-        SkillsOutDto employees = adminService.getEmployeeId(empId);
+        SkillsOutDto employees = adminService.getEmployeeId(email);
         logger.info("Ended get employee skill controller");
         return employees;
     }
