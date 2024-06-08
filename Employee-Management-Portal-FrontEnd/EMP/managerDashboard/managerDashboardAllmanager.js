@@ -148,11 +148,11 @@ document.addEventListener('DOMContentLoaded', function () {
         return select;
     }
 
-    // Add button redirection
-    const reqButton = document.querySelector('.req-btn');
-    reqButton.addEventListener('click', function () {
-        window.location.href = 'requestResource.html';
-    });
+    // // Add button redirection
+    // const reqButton = document.querySelector('.req-btn');
+    // reqButton.addEventListener('click', function () {
+    //     window.location.href = 'requestResource.html';
+    // });
 
     // Sidebar navigation
     const sidebarItems = document.querySelectorAll('.sidebar-ele li');

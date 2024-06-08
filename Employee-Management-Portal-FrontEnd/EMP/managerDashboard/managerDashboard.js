@@ -142,12 +142,12 @@ document.addEventListener('DOMContentLoaded', function () {
         leftSection.classList.add('left-section-allemployees');
 
         const employeeName = createField('div', 'employee-name larger', employee.name);
-        const designation = createField('div', 'field smaller', `Designation: ${employee.designation}`);
+        const designation = createField('div', 'field smaller', employee.designation);
         const projectName = createField('div', 'field', `Project Name: ${employee.projectName ? employee.projectName : 'N/A'}`);
         const managerName = createField('div', 'field', `Manager Name: ${employee.managerName ? employee.managerName : 'N/A'}`);
         const contact = createField('div', 'field', `Contact: ${employee.contactNo}`);
         const email = createField('div', 'field', `Email: ${employee.email}`);
-        const empId = createField('div', 'field', `Employee ID: ${employee.empId}`);
+        const empId = createField('div', 'emp-id', `Employee ID: ${employee.empId}`);
         const dob = createField('div', 'field', `DOB: ${employee.dob}`);
         const doj = createField('div', 'field', `DOJ: ${employee.doj}`);
         const location = createField('div', 'field', `Location: ${employee.location}`);

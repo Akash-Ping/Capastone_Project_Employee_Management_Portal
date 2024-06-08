@@ -167,13 +167,13 @@ body {
 .left-section-allemployees, .right-section {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 12px;
 }
 
 .field {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     color: #666;
-    /* margin-bottom: 5px; */
+    margin-bottom: 5px;
 }
 
 .request-btn {
@@ -203,4 +203,20 @@ body {
 .employee-name.larger {
     font-size: 1.2em;
     font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+
+  .field.smaller {
+    font-size: 14px;
+    font-family: poppins;
+    color: #555;
+}
+
+.emp-id {
+    font-size: 14px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 10px;
   }
