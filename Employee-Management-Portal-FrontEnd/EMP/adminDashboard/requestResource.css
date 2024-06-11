@@ -68,3 +68,79 @@ body {
 .reject-button {
     background-color: #dc3545;
 }
+
+@media (max-width: 628px) {
+    .requested-resources-container {
+        width: 93%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+    .resource-table th, .resource-table td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .resource-page-heading {
+        font-size: 20px;
+      }
+
+      .goback-button {
+        background-color: #d32f2f;
+        color: white;
+        padding: 7px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 10px;
+      }
+
+      .action-button {
+        padding: 2px 9px;
+        border: none;
+        cursor: pointer;
+        margin: 0 0px;
+        border-radius: 5px;
+        color: white;
+        font-size: 9px;
+}
+
+    }
+
+
+@media (max-width: 480px) {
+    .resource-table th, .resource-table td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        font-size: 10px;
+    }
+
+    .resource-page-heading {
+        font-size: 15px;
+      }
+
+      .goback-button {
+        background-color: #d32f2f;
+        color: white;
+        padding: 7px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 10px;
+      }
+
+      .action-button {
+        padding: 2px 9px;
+        border: none;
+        cursor: pointer;
+        margin: 0 0px;
+        border-radius: 5px;
+        color: white;
+        font-size: 9px;
+}
+}
+

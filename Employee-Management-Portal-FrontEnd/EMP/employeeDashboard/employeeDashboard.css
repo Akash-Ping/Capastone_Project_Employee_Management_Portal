@@ -1,39 +1,40 @@
 /* Google Fonts - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-}
+} */
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Poppins, sans-serif;
     background-color: #f0f0f0;
 }
 
 .full-page {
     height: 100vh;
     display: flex;
+    flex-direction: column;
 }
 
 .sidebar-ele {
-    width: 303px;
+    width: 265px;
     background-color: #343a40;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+    position: fixed;
+    height: 100%;
 }
 
 .sidebar-ele h2 {
     margin: 0 0 20px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
 }
 
 .sidebar-ele ul {
@@ -50,7 +51,6 @@ body {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 16px;
 }
 
 .sidebar-ele li:hover {
@@ -70,6 +70,8 @@ body {
     text-align: center;
     font-size: 16px;
     transition: background-color 0.3s;
+    color: white;
+    margin-bottom: 40px;
 }
 
 .logout-btn:hover {
@@ -79,9 +81,10 @@ body {
 .main-container {
     flex: 1;
     display: flex;
+    margin-left: 304px;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 0px;
 }
 
 .employee-details-container {
@@ -90,6 +93,7 @@ body {
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
 }
 
 h1 {
@@ -258,4 +262,143 @@ button:hover {
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .employee-details-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .employee-details-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .full-page {
+        flex-direction: column;
+    }
+
+    .sidebar-ele {
+        position: relative;
+        width: 95%;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .sidebar-ele h2 {
+        display: none;
+    }
+
+    .sidebar-ele ul {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sidebar-ele li {
+        margin: 0px 4px;
+        flex: 0 0 auto;
+        font-size: 12px;
+        border-radius: 19px;
+    }
+
+    .sidebar-ele button.logout-btn {
+        font-size: 12px;
+        margin: 0px 11px;
+    }
+
+    .main-container {
+        margin-left: 0;
+        padding: 20px 10px;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .employee-details-container {
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-ele {
+        position: relative;
+        width: 95%;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .sidebar-ele h2 {
+        display: none;
+    }
+
+    .sidebar-ele ul {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sidebar-ele li {
+        margin: 0px 4px;
+        flex: 0 0 auto;
+        font-size: 12px;
+        border-radius: 19px;
+        padding: 5px;
+    }
+
+    .sidebar-ele button.logout-btn {
+        font-size: 12px;
+        margin: 0px 11px;
+        padding: 5px;
+    }
+
+    .employee-details-container {
+        padding: 10px;
+    }
+
+    .employee-details-form {
+        flex-direction: column;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+    }
+
+    label, .emp-detail {
+        font-size: 14px;
+    }
+
+    .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 47%;
+        transform: translate(-50%, -50%) scale(1.2);
+        background-color: #fff;
+        padding: 30px 20px;
+        border-radius: 24px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        max-width: 380px;
+        width: 69%;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
 }
