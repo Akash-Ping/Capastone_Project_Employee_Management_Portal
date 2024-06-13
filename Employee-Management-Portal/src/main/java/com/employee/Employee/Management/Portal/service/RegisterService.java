@@ -6,6 +6,7 @@ import com.employee.Employee.Management.Portal.entity.Role;
 import com.employee.Employee.Management.Portal.entity.Skills;
 import com.employee.Employee.Management.Portal.entity.User;
 import com.employee.Employee.Management.Portal.exception.DataAlreadyExistsException;
+import com.employee.Employee.Management.Portal.exception.InvalidEmailDomainException;
 import com.employee.Employee.Management.Portal.repository.SkillsRepository;
 import com.employee.Employee.Management.Portal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,29 +77,15 @@ public class RegisterService {
     }
 
 
-//    public final LoginOutDto userLogin(final LoginInDto loginInDto) {
-//        Optional<User> user = userRepository.findByEmail(loginInDto.getEmail());
-//
-//        LoginOutDto loginOutDto = new LoginOutDto();
-//        if (user.isPresent() && passwordEncoder.matches(loginInDto.getPassword(), user.get().getPassword())) {
-//            loginOutDto.setMessage("Login successful");
-//            loginOutDto.setName(user.get().getName());
-//            loginOutDto.setEmail(user.get().getEmail());
-//            loginOutDto.setRole(user.get().getRole());
-//            loginOutDto.setId(user.get().getId());
-//        } else {
-//            loginOutDto.setMessage("Invalid credentials");
-//        }
-//
-//        return loginOutDto;
-//    }
-
-
-
-
     public ApiResponseDto addUser(final RegisterDto addUserDto) throws DataAlreadyExistsException {
         ApiResponseDto response = new ApiResponseDto();
 
+
+
+        // Check if the email has the correct domain
+        if (!addUserDto.getEmail().endsWith("@nucleusteq.com")) {
+            throw new InvalidEmailDomainException("Email must be a nucleusteq.com address");
+        }
 
         Optional<User> emailStyle = userRepository.findByEmail(addUserDto.getEmail());
         if (emailStyle.isPresent()) {
@@ -136,7 +123,6 @@ public class RegisterService {
         // Hash the password before saving
         String hashedPassword = passwordEncoder.encode(addUserDto.getPassword());
         user.setPassword(hashedPassword);
-//        user.setPassword(addUserDto.getPassword());
         user.setDob(addUserDto.getDob());
         user.setDoj(addUserDto.getDoj());
         user.setRole(addUserDto.getRole());

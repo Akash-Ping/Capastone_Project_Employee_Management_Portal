@@ -1,9 +1,6 @@
 package com.employee.Employee.Management.Portal;
 
-import com.employee.Employee.Management.Portal.exception.CustomErrorResponse;
-import com.employee.Employee.Management.Portal.exception.DataAlreadyExistsException;
-import com.employee.Employee.Management.Portal.exception.DataNotFoundException;
-import com.employee.Employee.Management.Portal.exception.WrongInputException;
+import com.employee.Employee.Management.Portal.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -32,6 +29,13 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public CustomErrorResponse dataAlreadyExistExceptionHandler(
             final DataAlreadyExistsException ex) {
+        return new CustomErrorResponse(ex.getMessage());
+    }
+
+    @ExceptionHandler(InvalidEmailDomainException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public CustomErrorResponse invalidEmailDomainExceptionHandler(final InvalidEmailDomainException ex) {
         return new CustomErrorResponse(ex.getMessage());
     }
 
