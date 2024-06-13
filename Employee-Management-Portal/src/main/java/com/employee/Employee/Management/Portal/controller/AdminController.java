@@ -16,6 +16,7 @@ import com.employee.Employee.Management.Portal.entity.Skills;
 import com.employee.Employee.Management.Portal.entity.User;
 import com.employee.Employee.Management.Portal.service.AdminService;
 import com.employee.Employee.Management.Portal.service.RegisterService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,7 @@ public class AdminController {
     }
 
     @PostMapping("/addUser")
-    public final ApiResponseDto addUser(@RequestBody final RegisterDto registerDto) {
+    public final ApiResponseDto addUser(@Valid @RequestBody final RegisterDto registerDto) {
         logger.info("Started add user controller");
         ApiResponseDto response = registerService.addUser(registerDto);
         logger.info("Ended add user controller");

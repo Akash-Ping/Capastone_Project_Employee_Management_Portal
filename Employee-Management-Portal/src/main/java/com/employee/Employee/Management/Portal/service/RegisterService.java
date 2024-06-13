@@ -5,6 +5,7 @@ import com.employee.Employee.Management.Portal.dto.RegisterDto;
 import com.employee.Employee.Management.Portal.entity.Role;
 import com.employee.Employee.Management.Portal.entity.Skills;
 import com.employee.Employee.Management.Portal.entity.User;
+import com.employee.Employee.Management.Portal.exception.DataAlreadyExistsException;
 import com.employee.Employee.Management.Portal.repository.SkillsRepository;
 import com.employee.Employee.Management.Portal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +96,7 @@ public class RegisterService {
 
 
 
-    public ApiResponseDto addUser(final RegisterDto addUserDto) {
+    public ApiResponseDto addUser(final RegisterDto addUserDto) throws DataAlreadyExistsException {
         ApiResponseDto response = new ApiResponseDto();
 
 

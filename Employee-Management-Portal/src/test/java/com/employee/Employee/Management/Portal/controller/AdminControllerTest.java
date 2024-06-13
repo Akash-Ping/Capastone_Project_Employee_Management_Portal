@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.employee.Employee.Management.Portal.dto.*;
+import com.employee.Employee.Management.Portal.entity.Role;
 import com.employee.Employee.Management.Portal.entity.Skills;
 import com.employee.Employee.Management.Portal.entity.User;
 import com.employee.Employee.Management.Portal.repository.UserRepository;
@@ -28,10 +29,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc (addFilters = false)
@@ -88,7 +86,20 @@ class AdminControllerTest {
         ApiResponseDto response = new ApiResponseDto("User added successfully");
         when(registerService.addUser(any(RegisterDto.class))).thenReturn(response);
 
-        String jsonRequest = objectMapper.writeValueAsString(new RegisterDto());
+        RegisterDto registerDto = new RegisterDto();
+        registerDto.setName("John Doe");
+        registerDto.setContactNo("1234567890");
+        registerDto.setDob("1990-01-01");
+        registerDto.setDoj("2020-01-01");
+        registerDto.setDesignation("Software Engineer");
+        registerDto.setEmail("john.doe@example.com");
+        registerDto.setEmpId("E12345");
+        registerDto.setLocation("New York");
+        registerDto.setPassword("password");
+        registerDto.setRole(Role.EMPLOYEE);  // Assuming Role is an enum and USER is one of the values
+        registerDto.setAssignedSkills(Collections.singleton(1L));  // Assuming you have a skill with ID 1
+
+        String jsonRequest = objectMapper.writeValueAsString(registerDto);
         mockMvc.perform(post("/employee/addUser")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonRequest))

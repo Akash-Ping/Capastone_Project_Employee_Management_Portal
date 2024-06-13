@@ -6,6 +6,7 @@ import com.employee.Employee.Management.Portal.exception.DataNotFoundException;
 import com.employee.Employee.Management.Portal.exception.WrongInputException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -54,23 +55,25 @@ public class GlobalExceptionHandlerTest {
     @Test
     public void testExceptionHandler() {
         Exception ex = new Exception("Generic error");
-        CustomErrorResponse response = globalExceptionHandler.exceptionHandler(ex);
+        ResponseEntity<String> response = globalExceptionHandler.handleGenericException(ex);
 
-        assertEquals("Generic error", response.getMessage());
+        assertEquals("An unexpected error occurred: Generic error", response.getBody());
+        assertEquals(500, response.getStatusCodeValue());
     }
 
     @Test
-    public void testHandleEmptyDataValidation() {
+    public void testHandleValidationExceptions() {
         FieldError fieldError = new FieldError("objectName", "fieldName", "defaultMessage");
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.getAllErrors()).thenReturn(Collections.singletonList(fieldError));
 
         MethodArgumentNotValidException ex = new MethodArgumentNotValidException(null, bindingResult);
-        Map<String, String> response = globalExceptionHandler.handleEmptyDataValidation(ex);
+        ResponseEntity<Map<String, String>> response = globalExceptionHandler.handleValidationExceptions(ex);
 
         Map<String, String> expected = new HashMap<>();
         expected.put("fieldName", "defaultMessage");
 
-        assertEquals(expected, response);
+        assertEquals(expected, response.getBody());
+        assertEquals(400, response.getStatusCodeValue());
     }
 }

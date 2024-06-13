@@ -1,23 +1,52 @@
 package com.employee.Employee.Management.Portal.dto;
 
 import com.employee.Employee.Management.Portal.entity.Role;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Objects;
 import java.util.Set;
 
 public class RegisterDto {
 
     private Long id;
+
+    @NotBlank(message = "Name is required")
     private String name;
+
+    @NotBlank(message = "Contact number is required")
     private String contactNo;
+
+    @NotBlank(message = "Date of birth is required")
     private String dob;
+
+    @NotBlank(message = "Date of joining is required")
     private String doj;
+
+    @NotBlank(message = "Designation is required")
     private String designation;
+
+    @Email(message = "Email should be valid")
+    @NotBlank(message = "Email is required")
     private String email;
+
+    @NotBlank(message = "Employee ID is required")
     private String empId;
+
+    @NotBlank(message = "Location is required")
     private String location;
+
+    @NotBlank(message = "Password is required")
     private String password;
+
+    @NotNull(message = "Role is required")
     private Role role;
+
+    //    @NotNull(message = "Manager ID is required")
     private Long EmpManagerId;
+
+    //    @NotNull(message = "Project ID is required")
     private Long EmpProjectId;
 
     private String ManagerName;
@@ -32,6 +61,7 @@ public class RegisterDto {
 
     private String ProjectName;
 
+    @NotNull(message = "Assigned skills are required")
     private Set<Long> assignedSkills;
 
 
