@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => displayRequests(data))
             .catch(error => {
                 console.error('Error fetching requests:', error);
-                // alert(`Error fetching requests: ${error.message}`);
+                showCustomAlert('No Request Present at the moment');
             });
     }
 
@@ -66,12 +66,12 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.json())
             .then(data => {
-                alert(data.message);
+                showCustomAlert(data.message);
                 fetchRequests();
             })
             .catch(error => {
                 console.error('Error accepting request:', error);
-                alert(`Error accepting request`);
+                showCustomAlert('Error accepting request');
             });
     };
 
@@ -85,12 +85,12 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.json())
             .then(data => {
-                alert(data.message);
+                showCustomAlert(data.message);
                 fetchRequests();
             })
             .catch(error => {
                 console.error('Error rejecting request:', error);
-                alert(`Error rejecting request`);
+                showCustomAlert('Error rejecting request');
             });
     };
 
@@ -98,3 +98,21 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'adminDashboardManager.html';
     };
 });
+
+function showCustomAlert(message) {
+    const alertOverlay = document.getElementById('custom-alert-overlay');
+    const alertBox = document.getElementById('custom-alert');
+    const alertMessage = document.getElementById('custom-alert-message');
+
+    alertMessage.textContent = message;
+    alertOverlay.style.display = 'flex';
+    alertBox.style.display = 'block';
+}
+
+function closeCustomAlert() {
+    const alertOverlay = document.getElementById('custom-alert-overlay');
+    const alertBox = document.getElementById('custom-alert');
+
+    alertOverlay.style.display = 'none';
+    alertBox.style.display = 'none';
+}
