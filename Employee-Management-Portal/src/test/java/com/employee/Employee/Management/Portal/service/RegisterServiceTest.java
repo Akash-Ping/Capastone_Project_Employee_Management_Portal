@@ -155,7 +155,7 @@ public class RegisterServiceTest {
     @Test
     void testAddUser_Success() {
         RegisterDto addUserDto = new RegisterDto();
-        addUserDto.setEmail("user@example.com");
+        addUserDto.setEmail("user@nucleusteq.com");
         addUserDto.setPassword("password");
         addUserDto.setName("User");
         addUserDto.setEmpId("E002");
@@ -182,9 +182,9 @@ public class RegisterServiceTest {
     @Test
     void testAddUser_EmailAlreadyInUse() {
         RegisterDto addUserDto = new RegisterDto();
-        addUserDto.setEmail("user@example.com");
+        addUserDto.setEmail("user@nucleusteq.com");
 
-        when(userRepository.findByEmail("user@example.com")).thenReturn(Optional.of(new User()));
+        when(userRepository.findByEmail("user@nucleusteq.com")).thenReturn(Optional.of(new User()));
 
         ApiResponseDto response = registerService.addUser(addUserDto);
 
@@ -196,7 +196,7 @@ public class RegisterServiceTest {
     @Test
     void testAddUser_EmpIdAlreadyInUse() {
         RegisterDto addUserDto = new RegisterDto();
-        addUserDto.setEmail("user@example.com");
+        addUserDto.setEmail("user@nucleusteq.com");
         addUserDto.setEmpId("E002");
 
         when(userRepository.findByEmail("user@example.com")).thenReturn(Optional.empty());
@@ -212,7 +212,7 @@ public class RegisterServiceTest {
     @Test
     void testAddUser_AssignSkills() {
         RegisterDto addUserDto = new RegisterDto();
-        addUserDto.setEmail("user@example.com");
+        addUserDto.setEmail("user@nucleusteq.com");
         addUserDto.setPassword("password");
         addUserDto.setName("User");
         addUserDto.setEmpId("E002");
@@ -224,7 +224,7 @@ public class RegisterServiceTest {
         addUserDto.setRole(Role.EMPLOYEE);
         addUserDto.setAssignedSkills(Set.of(1L));
 
-        when(userRepository.findByEmail("user@example.com")).thenReturn(Optional.empty());
+        when(userRepository.findByEmail("user@nucleusteq.com")).thenReturn(Optional.empty());
         when(userRepository.findByEmpId("E002")).thenReturn(Optional.empty());
         when(passwordEncoder.encode("password")).thenReturn("hashedPassword");
         Skills skill = new Skills();
