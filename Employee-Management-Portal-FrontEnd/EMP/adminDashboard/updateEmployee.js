@@ -5,18 +5,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (!jwtToken) {
-        alert('Please login first.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('Please login first.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     const payload = JSON.parse(atob(jwtToken.split('.')[1]));
     const userRole = payload.authorities;
 
     if (userRole !== 'ADMIN') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('You do not have permission to access this page.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     if (employee) {
@@ -81,7 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            window.location.href = 'adminDashboard.html'; // Redirect to admin dashboard
+            showCustomAlert(data.message, function() {
+                window.location.href = 'adminDashboard.html';// Redirect to admin dashboard
+                });
         })
         .catch(error => console.error('Error updating employee:', error));
     });
@@ -90,4 +94,19 @@ document.addEventListener('DOMContentLoaded', function () {
     cancelBtn.addEventListener('click', function () {
         window.location.href = 'adminDashboard.html'; // Redirect to admin dashboard
     });
+
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
+    }
 });

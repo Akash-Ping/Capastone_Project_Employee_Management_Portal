@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (!jwtToken) {
-        alert('Session expired or invalid access.');
-        window.location.href = 'login.html';
-        return;
+        showCustomAlert('Session expired or invalid access.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     // const empId = localStorage.getItem('empId');
@@ -24,15 +25,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Extract the user role from the payload
     const userRole = payload.authorities; // Assuming the role is stored in the token
     if (userRole !== 'EMPLOYEE') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('You do not have permission to access this page.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     const userEmail = payload.email;
 
     if (!userEmail) {
-        alert('User email not found.');
+        showCustomAlert('User email not found.',function(){
+            window.location.href = '/login.html'; // Redirect to login page
+            });
         return;
     }
 
@@ -139,8 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(data => {
-            alert('Skills updated successfully');
+            showCustomAlert('Skills updated successfully', function() {
             window.location.href = 'employeeDashboard.html';
+        });
         })
         .catch(error => console.error('Error updating skills:', error));
     });
@@ -149,4 +154,20 @@ document.addEventListener('DOMContentLoaded', function() {
     closeButton.addEventListener('click', () => {
         window.location.href = 'employeeDashboard.html';
     });
+
+    
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
+    }
 });

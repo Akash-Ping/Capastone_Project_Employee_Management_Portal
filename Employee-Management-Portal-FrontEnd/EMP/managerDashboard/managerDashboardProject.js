@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (!jwtToken) {
-        alert('Session expired or invalid access.');
-        window.location.href = 'login.html';
-        return;
+        showCustomAlert('Session expired or invalid access.',function(){
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     // Decode the JWT token to get the payload
@@ -13,9 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Extract the user role from the payload
     const userRole = payload.authorities; // Assuming the role is stored in the token
     if (userRole !== 'MANAGER') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('You do not have permission to access this page.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     fetchProjects();
@@ -108,4 +110,19 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.clear(); // Clear all localStorage items
         window.location.href = '/login.html'; // Redirect to login page
     });
+
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
+    }
 });

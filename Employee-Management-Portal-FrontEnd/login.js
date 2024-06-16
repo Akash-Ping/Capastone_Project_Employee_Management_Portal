@@ -86,15 +86,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         window.location.href = '/EMP/employeeDashboard/employeeDashboard.html';
                         break;
                     default:
-                        alert('Unknown role: ' + data.role);
+                        showCustomAlert('Unknown role: ' + data.role);
                 }
             } else {
-                alert(data.message);
+                showCustomAlert(data.message);
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Invalid Credentials');
+           showCustomAlert('Invalid Credentials');
         });
         // .catch(error => console.error('Error:', error));
     });
@@ -117,19 +117,22 @@ document.addEventListener('DOMContentLoaded', function () {
             // Validate employee ID format
     const empIdRegex = /^N\d{3}$/; // Regular expression for "NXXX" format
     if (!empIdRegex.test(empId)) {
-        alert("Employee ID should be in the format 'NXXX'");
+        showCustomAlert("Employee ID should be in the format 'NXXX'",function(){
+        });
         return;
     }
 
        // Validate contact number format (10 digits)
        const contactNoRegex = /^\d{10}$/; // Regular expression for 10 digits
        if (!contactNoRegex.test(contactNo)) {
-           alert("Contact number should be a 10-digit number.");
+           showCustomAlert("Contact number should be a 10-digit number.",function(){
+              });
            return;
        }
 
         if (password !== confirmPassword) {
-            alert("Passwords do not match");
+            showCustomAlert("Passwords do not match",function(){
+            });
             return;
         }
 
@@ -146,13 +149,13 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             console.log(data);
             if (data.message === "Admin registered successfully") {
-                alert('Registration successful. Please login.');
+                showCustomAlert('Registration successful. Please login.');
                 registerContainer.style.display = 'none';
                 loginContainer.style.display = 'block';
             } else if (data.message === "Admin already registered") {
-                alert('Admin already registered. Please login.');
+                showCustomAlert('Admin already registered. Please login.');
             } else {
-                alert('Registration failed: ' + data.message);
+                showCustomAlert('Registration failed: ' + data.message);
             }
         })
         .catch(error => console.error('Error:', error));
@@ -181,5 +184,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = '/EMP/employeeDashboard/employeeDashboard.html';
                 break;
         }
+    }
+
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
     }
 });

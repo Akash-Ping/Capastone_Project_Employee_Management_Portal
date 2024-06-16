@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (!jwtToken) {
-        alert('Please login first.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('Please login first.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     // Decode the JWT token to get the payload
@@ -16,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const userRole = payload.authorities;
 
     if (userRole !== 'MANAGER') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('You do not have permission to access this page.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     // Extract the email from the payload
@@ -232,4 +234,19 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.clear(); // Clear all localStorage items
         window.location.href = '/login.html'; // Redirect to login page
     });
+
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
+    }
 });

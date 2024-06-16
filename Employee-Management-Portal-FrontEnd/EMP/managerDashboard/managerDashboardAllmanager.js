@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (!jwtToken) {
-        alert('Session expired or invalid access.');
-        window.location.href = 'login.html';
-        return;
+        showCustomAlert('Please login first.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     // Decode the JWT token to get the payload
@@ -13,9 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Extract the user role from the payload
     const userRole = payload.authorities; // Assuming the role is stored in the token
     if (userRole !== 'MANAGER') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('You do not have permission to access this page.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     // Fetch managers from the server

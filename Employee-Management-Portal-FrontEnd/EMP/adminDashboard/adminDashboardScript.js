@@ -2,18 +2,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (!jwtToken) {
-        alert('Please login first.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('Please login first.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     const payload = JSON.parse(atob(jwtToken.split('.')[1]));
     const userRole = payload.authorities;
 
     if (userRole !== 'ADMIN') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('You do not have permission to access this page.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     // Fetch employees from the server
@@ -27,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-             // **Change 1: Sort employees by id**
-             data.sort((a, b) => a.id - b.id);
+            // Sort employees by id
+            data.sort((a, b) => a.id - b.id);
             displayEmployees(data);
         })
         .catch(error => console.error('Error fetching employees:', error));
@@ -111,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         deleteButton.addEventListener('click', function() {
-            deleteEmployee(employee.empId, card);
+            openDeleteConfirmationModal(employee.empId, card);
         });
 
         buttonsSection.appendChild(updateButton);
@@ -146,7 +148,47 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'addEmployee.html';
     });
 
-    // Delete employee function
+    // Create and append the modal to the body
+    function createDeleteConfirmationModal() {
+        const modal = document.createElement('div');
+        modal.id = 'deleteConfirmationModal';
+        modal.classList.add('modal');
+        modal.innerHTML = `
+            <div class="modal-content">
+                <p>Do you want to delete this employee?</p>
+                <button id="confirmDeleteButton">Yes</button>
+                <button id="cancelDeleteButton">No</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Add event listeners for modal buttons
+        const confirmDeleteButton = modal.querySelector('#confirmDeleteButton');
+        const cancelDeleteButton = modal.querySelector('#cancelDeleteButton');
+
+        cancelDeleteButton.addEventListener('click', () => modal.style.display = 'none');
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        return { modal, confirmDeleteButton };
+    }
+
+    const { modal: deleteConfirmationModal, confirmDeleteButton } = createDeleteConfirmationModal();
+
+    // Open the modal
+    function openDeleteConfirmationModal(empId, cardElement) {
+        deleteConfirmationModal.style.display = 'block';
+
+        confirmDeleteButton.onclick = function() {
+            deleteEmployee(empId, cardElement);
+            deleteConfirmationModal.style.display = 'none';
+        };
+    }
+
+    // Delete employee
     function deleteEmployee(empId, cardElement) {
         fetch(`http://localhost:8080/employee/delete/${empId}`, {
             method: 'DELETE',
@@ -156,15 +198,15 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             if (response.ok) {
-                cardElement.remove(); // Remove card from the DOM
+                cardElement.remove(); // Remove the employee card from the DOM
             } else {
-                console.error('Failed to delete employee');
+                console.error('Error deleting employee:', response.statusText);
             }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error deleting employee:', error));
     }
 
-    // Unassign project function
+    // Unassign project from employee
     function unassignProject(empId) {
         fetch(`http://localhost:8080/employee/unassignProject/${empId}`, {
             method: 'PUT',
@@ -174,27 +216,43 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             if (response.ok) {
-                fetchEmployees(); // Refresh employee list
+                fetchEmployees(); // Refresh the employee list
             } else {
-                console.error('Failed to unassign project');
+                console.error('Error unassigning project:', response.statusText);
             }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error unassigning project:', error));
     }
 
+    // Logout button
+    const logoutBtn = document.querySelector('.logout-btn');
+    logoutBtn.addEventListener('click', function() {
+        localStorage.removeItem('jwtToken'); // Remove token from localStorage
+        window.location.href = '/login.html'; // Redirect to login page
+    });
+
     // Sidebar navigation
-    const sidebarItems = document.querySelectorAll('.sidebar-ele li');
+    const sidebarItems = document.querySelectorAll('aside.sidebar-ele ul li');
     sidebarItems.forEach(item => {
-        item.addEventListener('click', function () {
-            const pageName = this.getAttribute('data-page');
-            window.location.href = pageName; // Redirect based on the data-page attribute
+        item.addEventListener('click', function() {
+            const page = item.getAttribute('data-page');
+            window.location.href = page;
         });
     });
 
-    // Logout button functionality
-    const logoutButton = document.querySelector('.logout-btn');
-    logoutButton.addEventListener('click', function () {
-        localStorage.clear(); // Clear all localStorage items
-        window.location.href = '/login.html'; // Redirect to login page
-    });
+
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
+    }
 });

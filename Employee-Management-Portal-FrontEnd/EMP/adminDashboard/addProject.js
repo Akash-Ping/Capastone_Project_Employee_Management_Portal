@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const jwtToken = localStorage.getItem('jwtToken');
     if (!jwtToken) {
-        alert('Please login first.');
-        window.location.href = '/login.html'; // Redirect to login page
+        showCustomAlert('Please login first.', function() {
+            window.location.href = '/login.html';
+        });
         return;
     }
 
@@ -19,8 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const userRole = payload.authorities;
 
     if (userRole !== 'ADMIN') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
+        showCustomAlert('You do not have permission to access this page.', function() {
+            window.location.href = '/login.html';
+        });
         return;
     }
 
@@ -41,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Authorization': `Bearer ${jwtToken}`
             }
         })
-            .then(response => response.json())
-            .then(data => {
-                populateManagerDropdown(data);
-            })
-            .catch(error => console.error('Error fetching managers:', error));
+        .then(response => response.json())
+        .then(data => {
+            populateManagerDropdown(data);
+        })
+        .catch(error => console.error('Error fetching managers:', error));
     }
 
     function populateManagerDropdown(managers) {
@@ -109,20 +111,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 body: JSON.stringify(projectData)
             })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Response:', data); // Log the response to inspect it
-                    if (data.message === 'Project added successfully') {
-                        alert('Project added successfully');
-                        window.location.href = 'adminDashboardProject.html'; // Redirect to admin dashboard
-                    } else {
-                        alert(data.message || 'Failed to add project');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error adding project:', error);
-                    alert('Failed to add project due to an error');
-                });
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Project added successfully') {
+                    showCustomAlert('Project added successfully', function() {
+                        window.location.href = 'adminDashboardProject.html';
+                    });
+                } else {
+                    showCustomAlert(data.message || 'Failed to add project');
+                }
+            })
+            .catch(error => {
+                console.error('Error adding project:', error);
+                showCustomAlert('Failed to add project due to an error');
+            });
         }
+    }
+
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
     }
 });

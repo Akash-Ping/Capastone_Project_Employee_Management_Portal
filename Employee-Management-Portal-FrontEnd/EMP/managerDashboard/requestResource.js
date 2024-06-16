@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectedEmployeeId = localStorage.getItem('selectedEmployeeId');
 
     if (!jwtToken || !selectedEmployeeId) {
-        alert('Session expired or invalid access.');
+        showCustomAlert('Session expired or invalid access.', function() {
         window.location.href = 'managerDashboard.html';
+        });
         return;
     }
 
@@ -23,9 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const userRole = payload.authorities; // Assuming the role is stored in the token
     if (userRole !== 'MANAGER') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('You do not have permission to access this page.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     fetchProjects(sessionUserEmail);
@@ -81,9 +83,25 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.json())
             .then(data => {
-                alert(data.message);
+                showCustomAlert(data.message, function() {
                 window.location.href = 'managerDashboard.html';
+                });
             })
             .catch(error => console.error('Error requesting resource:', error));
+    }
+
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
     }
 });

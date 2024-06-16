@@ -3,18 +3,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (!jwtToken) {
-        alert('Please login first.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('Please login first.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     const payload = JSON.parse(atob(jwtToken.split('.')[1]));
     const userRole = payload.authorities;
 
     if (userRole !== 'ADMIN') {
-        alert('You do not have permission to access this page.');
-        window.location.href = '/login.html'; // Redirect to login page
-        return;
+        showCustomAlert('You do not have permission to access this page.',function() {
+            window.location.href = '/login.html'; // Redirect to login page
+            });
+            return;
     }
 
     // Fetch and display requests

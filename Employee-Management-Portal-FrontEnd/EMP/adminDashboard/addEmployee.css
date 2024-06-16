@@ -70,13 +70,19 @@ select {
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 14px;
+    background-color: #007bff;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
     margin: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 button[type="submit"] {
@@ -101,4 +107,20 @@ button[type="submit"]:hover {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
 }

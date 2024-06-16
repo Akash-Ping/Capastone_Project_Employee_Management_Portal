@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const jwtToken = localStorage.getItem('jwtToken');
     if (!jwtToken) {
-        alert('Please login first.');
+        showCustomAlert('Please login first.',function() {
         window.location.href = '/login.html'; // Redirect to login page
+        });
         return;
     }
 
@@ -16,8 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const userRole = payload.authorities;
 
     if (userRole !== 'ADMIN') {
-        alert('You do not have permission to access this page.');
+        showCustomAlert('You do not have permission to access this page.',function() {
         window.location.href = '/login.html'; // Redirect to login page
+        });
         return;
     }
 
@@ -80,21 +82,21 @@ document.addEventListener('DOMContentLoaded', function () {
         // Validate employee ID format
         const empIdRegex = /^N\d{3}$/; // Regular expression for "NXXX" format
         if (!empIdRegex.test(empId)) {
-            alert("Employee ID should be in the format 'NXXX'");
+            showCustomAlert("Employee ID should be in the format 'NXXX'");
             return;
         }
 
         // Validate contact number format (10 digits)
         const contactNoRegex = /^\d{10}$/; // Regular expression for 10 digits
         if (!contactNoRegex.test(contactNo)) {
-            alert("Contact number should be a 10-digit number.");
+            showCustomAlert("Contact number should be a 10-digit number.");
             return;
         }
 
         // Validate email format
         const emailRegex = /^[^\s@]+@nucleusteq\.com$/; // Regular expression for emails ending with @nucleusteq.com
         if (!emailRegex.test(email)) {
-            alert("Email should end with '@nucleusteq.com'.");
+            showCustomAlert("Email should end with '@nucleusteq.com'.");
             return;
         }
 
@@ -124,15 +126,16 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             console.log(data);
             if (data.message === "Employee added successfully") {
-                alert('Employee added successfully.');
+                showCustomAlert('Employee added successfully.' , function() {;
                 window.location.href = 'adminDashboard.html'; // Redirect to admin dashboard
+            });
             } else {
-                alert('Error adding employee: ' + data.message);
+                showCustomAlert('Error adding employee: ' + data.message);
             }
         })
         .catch(error => {
             console.error('Error adding employee:', error);
-            alert('Error adding employee. Please try again.');
+            showCustomAlert('Error adding employee. Please try again.');
         });
     });
 
@@ -140,4 +143,20 @@ document.addEventListener('DOMContentLoaded', function () {
     cancelBtn.addEventListener('click', function () {
         window.location.href = 'adminDashboard.html'; // Redirect to admin dashboard
     });
+
+
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
+    }
 });
