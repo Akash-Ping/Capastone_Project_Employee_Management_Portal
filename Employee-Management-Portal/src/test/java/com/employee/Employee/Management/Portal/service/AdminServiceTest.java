@@ -5,6 +5,7 @@ import static org.mockito.Mockito.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -430,21 +431,23 @@ public class AdminServiceTest {
 
     @Test
     void testGetAllProjectsForAssignWithNonEmptyList() {
-        // Mock project entities with some projects
+        // Mock project entities with some projects having managers
         List<Project> projectEntities = new ArrayList<>();
         Project project1 = new Project();
         project1.setId(1L);
         project1.setProjectName("Project 1");
+        project1.setManager(new User()); // Assuming a manager is set
 
         Project project2 = new Project();
         project2.setId(2L);
         project2.setProjectName("Project 2");
+        project2.setManager(new User()); // Assuming a manager is set
 
         projectEntities.add(project1);
         projectEntities.add(project2);
 
         // Mock ProjectRepository to return projectEntities
-        when(projectRepository.findAll()).thenReturn(projectEntities);
+        when(projectRepository.findByManagerIsNotNull()).thenReturn(projectEntities);
 
         // Call the method under test
         List<AssignProjectOutDto> assignProjectOutDtos = adminService.getAllProjectsForAssign();
@@ -554,13 +557,16 @@ public class AdminServiceTest {
 
     @Test
     void testAssignProjectEmployeeNotFound() {
+        // Mock UserRepository to return empty Optional when findByEmpId is called
         when(userRepository.findByEmpId("E001")).thenReturn(Optional.empty());
 
         AssignProjectDto assignProjectDto = new AssignProjectDto();
         assignProjectDto.setEmpId("E001");
         assignProjectDto.setId(1L);
 
-        assertThrows(NoSuchElementException.class, () -> adminService.assignProject(assignProjectDto));
+        // Call the method under test and assert that it returns the expected ApiResponseDto
+        ApiResponseDto response = adminService.assignProject(assignProjectDto);
+        assertEquals("User not found", response.getMessage());;
     }
 
     @Test
@@ -615,25 +621,28 @@ public class AdminServiceTest {
         assignProjectDto.setEmpId("E001");
         assignProjectDto.setId(1L);
 
-        // Call the method under test and assert that it throws an exception
-        assertThrows(NoSuchElementException.class, () -> adminService.assignProject(assignProjectDto));
+
+         ApiResponseDto response = adminService.assignProject(assignProjectDto);
+        assertEquals("User not found", response.getMessage());;
     }
 
     @Test
     void testAssignProject_ProjectNotFound() {
-        User employee = new User();
-        employee.setEmpId("E001");
-        when(userRepository.findByEmpId("E001")).thenReturn(Optional.of(employee));
+        // Mock UserRepository to return a valid User when findByEmpId is called
+        User user = new User();
+        user.setEmpId("E001");
+        when(userRepository.findByEmpId("E001")).thenReturn(Optional.of(user));
 
-        // Mock ProjectRepository to return null when findById is called
+        // Mock ProjectRepository to return empty Optional when findById is called
         when(projectRepository.findById(1L)).thenReturn(Optional.empty());
 
         AssignProjectDto assignProjectDto = new AssignProjectDto();
         assignProjectDto.setEmpId("E001");
         assignProjectDto.setId(1L);
 
-        // Call the method under test and assert that it throws an exception
-        assertThrows(NoSuchElementException.class, () -> adminService.assignProject(assignProjectDto));
+        // Call the method under test and assert that it returns the expected ApiResponseDto
+        ApiResponseDto response = adminService.assignProject(assignProjectDto);
+        assertEquals("Project not found", response.getMessage());
     }
 
     @Test
@@ -1082,6 +1091,197 @@ public class AdminServiceTest {
         assertEquals(0, result.size());
     }
 
+    @Test
+    void testAssignManagerToProject_ProjectNotFound() {
+        AssignManagerDto assignManagerDto = new AssignManagerDto();
+        assignManagerDto.setProjectId(1L);
+        assignManagerDto.setManagerId("M001");
+
+        when(projectRepository.findById(1L)).thenReturn(Optional.empty());
+
+        ApiResponseDto response = adminService.assignManagerToProject(assignManagerDto);
+
+        assertEquals("Project not found", response.getMessage());
+        verify(projectRepository, times(1)).findById(1L);
+        verifyNoMoreInteractions(projectRepository);
+        verifyNoInteractions(userRepository);
+    }
+
+    @Test
+    void testAssignManagerToProject_ManagerNotFound() {
+        AssignManagerDto assignManagerDto = new AssignManagerDto();
+        assignManagerDto.setProjectId(1L);
+        assignManagerDto.setManagerId("M001");
+
+        Project project = new Project();
+        project.setId(1L);
+
+        when(projectRepository.findById(1L)).thenReturn(Optional.of(project));
+        when(userRepository.findByEmpId("M001")).thenReturn(Optional.empty());
+
+        ApiResponseDto response = adminService.assignManagerToProject(assignManagerDto);
+
+        assertEquals("Manager not found", response.getMessage());
+        verify(projectRepository, times(1)).findById(1L);
+        verify(userRepository, times(1)).findByEmpId("M001");
+        verifyNoMoreInteractions(projectRepository, userRepository);
+    }
+
+    @Test
+    void testAssignManagerToProject_Success() {
+        AssignManagerDto assignManagerDto = new AssignManagerDto();
+        assignManagerDto.setProjectId(1L);
+        assignManagerDto.setManagerId("M001");
+
+        Project project = new Project();
+        project.setId(1L);
+
+        User manager = new User();
+        manager.setEmpId("M001");
+
+        when(projectRepository.findById(1L)).thenReturn(Optional.of(project));
+        when(userRepository.findByEmpId("M001")).thenReturn(Optional.of(manager));
+
+        ApiResponseDto response = adminService.assignManagerToProject(assignManagerDto);
+
+        assertEquals("Manager assigned to project successfully", response.getMessage());
+        assertEquals(manager, project.getManager());
+        verify(projectRepository, times(1)).findById(1L);
+        verify(userRepository, times(1)).findByEmpId("M001");
+        verify(projectRepository, times(1)).save(project);
+        verifyNoMoreInteractions(projectRepository, userRepository);
+    }
+
+
+    @Test
+    void testGetAllProjectsWithoutManager_NoProjects() {
+        // Mock empty list of projects without manager
+        when(projectRepository.findByManagerIsNull()).thenReturn(new ArrayList<>());
+
+        List<ProjectDto> projectDtos = adminService.getAllProjectsWithoutManager();
+
+        assertTrue(projectDtos.isEmpty());
+        verify(projectRepository, times(1)).findByManagerIsNull();
+        verifyNoInteractions(userRepository);
+    }
+
+    @Test
+    void testGetAllProjectsWithoutManager_ProjectsWithoutManager() {
+        // Mock list of projects without manager
+        List<Project> projects = new ArrayList<>();
+        Project project1 = new Project();
+        project1.setId(1L);
+        project1.setProjectName("Project 1");
+        project1.setDescription("Description 1");
+        project1.setStartDate("2024-06-22");
+
+        Project project2 = new Project();
+        project2.setId(2L);
+        project2.setProjectName("Project 2");
+        project2.setDescription("Description 2");
+        project2.setStartDate("2024-06-23");
+
+        projects.add(project1);
+        projects.add(project2);
+
+        when(projectRepository.findByManagerIsNull()).thenReturn(projects);
+        when(userRepository.findAllByEmpProjectId(anyLong())).thenReturn(new ArrayList<>()); // Assuming no team members
+
+        List<ProjectDto> projectDtos = adminService.getAllProjectsWithoutManager();
+
+        assertEquals(2, projectDtos.size());
+
+        // Verify conversion and fields
+        ProjectDto projectDto1 = projectDtos.get(0);
+        assertEquals(1L, projectDto1.getId());
+        assertEquals("Project 1", projectDto1.getProjectName());
+        assertEquals("Description 1", projectDto1.getDescription());
+        assertEquals("2024-06-22", projectDto1.getStartDate());
+        assertNull(projectDto1.getManager());
+        assertNull(projectDto1.getHead());
+        assertTrue(projectDto1.getTeamMembers().isEmpty());
+
+        ProjectDto projectDto2 = projectDtos.get(1);
+        assertEquals(2L, projectDto2.getId());
+        assertEquals("Project 2", projectDto2.getProjectName());
+        assertEquals("Description 2", projectDto2.getDescription());
+        assertEquals("2024-06-23", projectDto2.getStartDate());
+        assertNull(projectDto2.getManager());
+        assertNull(projectDto2.getHead());
+        assertTrue(projectDto2.getTeamMembers().isEmpty());
+
+        verify(projectRepository, times(1)).findByManagerIsNull();
+        verify(userRepository, times(2)).findAllByEmpProjectId(anyLong());
+        verifyNoMoreInteractions(projectRepository, userRepository);
+    }
+
+    @Test
+    void testGetAllProjectsWithoutManager_ProjectsWithManager() {
+        // Mock list of projects with manager
+        List<Project> projects = new ArrayList<>();
+        Project project1 = new Project();
+        project1.setId(1L);
+        project1.setProjectName("Project 1");
+        project1.setDescription("Description 1");
+        project1.setStartDate("2024-06-22");
+        User manager1 = new User();
+        manager1.setId(1L);
+        manager1.setName("Manager 1");
+        project1.setManager(manager1);
+
+        Project project2 = new Project();
+        project2.setId(2L);
+        project2.setProjectName("Project 2");
+        project2.setDescription("Description 2");
+        project2.setStartDate("2024-06-23");
+        User manager2 = new User();
+        manager2.setId(2L);
+        manager2.setName("Manager 2");
+        project2.setManager(manager2);
+
+        projects.add(project1);
+        projects.add(project2);
+
+        when(projectRepository.findByManagerIsNull()).thenReturn(projects);
+
+        // Mock userRepository to return the correct manager when queried
+        when(userRepository.findById(1L)).thenReturn(Optional.of(manager1));
+        when(userRepository.findById(2L)).thenReturn(Optional.of(manager2));
+
+        // Mock userRepository.findAllByEmpProjectId() assuming no team members
+        when(userRepository.findAllByEmpProjectId(anyLong())).thenReturn(new ArrayList<>());
+
+        // Call the method under test
+        List<ProjectDto> projectDtos = adminService.getAllProjectsWithoutManager();
+
+        // Assertions
+        assertEquals(2, projectDtos.size());
+
+        // Verify conversion and fields
+        ProjectDto projectDto1 = projectDtos.get(0);
+        assertEquals(1L, projectDto1.getId());
+        assertEquals("Project 1", projectDto1.getProjectName());
+        assertEquals("Description 1", projectDto1.getDescription());
+        assertEquals("2024-06-22", projectDto1.getStartDate());
+        assertEquals(1L, projectDto1.getManager().longValue());
+        assertEquals("Manager 1", projectDto1.getHead());
+        assertTrue(projectDto1.getTeamMembers().isEmpty());
+
+        ProjectDto projectDto2 = projectDtos.get(1);
+        assertEquals(2L, projectDto2.getId());
+        assertEquals("Project 2", projectDto2.getProjectName());
+        assertEquals("Description 2", projectDto2.getDescription());
+        assertEquals("2024-06-23", projectDto2.getStartDate());
+        assertEquals(2L, projectDto2.getManager().longValue());
+        assertEquals("Manager 2", projectDto2.getHead());
+        assertTrue(projectDto2.getTeamMembers().isEmpty());
+
+        // Verify interactions
+        verify(projectRepository, times(1)).findByManagerIsNull();
+        verify(userRepository, times(2)).findById(anyLong());
+        verify(userRepository, times(2)).findAllByEmpProjectId(anyLong());
+        verifyNoMoreInteractions(projectRepository, userRepository);
+    }
 }
 
 

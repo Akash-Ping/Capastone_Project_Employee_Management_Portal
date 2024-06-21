@@ -34,7 +34,10 @@ class ResourceControllerTest {
     @Test
     void testCreateRequestResource() throws Exception {
         RequestResourceDto requestResourceDto = new RequestResourceDto();
-        // Set requestResourceDto properties here
+        requestResourceDto.setEmpId("emp123");
+        requestResourceDto.setEmail("test@example.com");
+        requestResourceDto.setProjectId(1L);
+        requestResourceDto.setComment("Resource type comment");
 
         ApiResponseDto expectedResponse = new ApiResponseDto();
         expectedResponse.setMessage("Requested resource successfully");
@@ -45,7 +48,7 @@ class ResourceControllerTest {
 
         mockMvc.perform(MockMvcRequestBuilders.post("/requestResource/create")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"propertyName\":\"propertyValue\"}")) // Set content here
+                        .content("{\"empId\":\"emp123\", \"email\":\"test@example.com\", \"projectId\":1, \"comment\":\"Resource type comment\"}"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.message").value("Requested resource successfully"));

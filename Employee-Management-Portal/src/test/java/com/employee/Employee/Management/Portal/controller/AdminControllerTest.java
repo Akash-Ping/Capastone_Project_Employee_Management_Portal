@@ -201,10 +201,18 @@ class AdminControllerTest {
 
     @Test
     public void testAddProject() throws Exception {
+        // Arrange
         ApiResponseDto response = new ApiResponseDto("Project added successfully");
         when(adminService.addProject(any(ProjectDto.class))).thenReturn(response);
 
-        String jsonRequest = objectMapper.writeValueAsString(new ProjectDto());
+        ProjectDto projectDto = new ProjectDto();
+        projectDto.setProjectName("New Project"); // set a valid project name
+        projectDto.setDescription("This is a new project"); // set a valid description
+        projectDto.setStartDate("2024-07-01"); // set a valid start date
+
+        String jsonRequest = objectMapper.writeValueAsString(projectDto);
+
+        // Act & Assert
         mockMvc.perform(post("/employee/addProject")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonRequest))
@@ -250,10 +258,17 @@ class AdminControllerTest {
 
     @Test
     public void testAssignProject() throws Exception {
+        // Arrange
         ApiResponseDto response = new ApiResponseDto("Project assigned successfully");
         when(adminService.assignProject(any(AssignProjectDto.class))).thenReturn(response);
 
-        String jsonRequest = objectMapper.writeValueAsString(new AssignProjectDto());
+        AssignProjectDto assignProjectDto = new AssignProjectDto();
+        assignProjectDto.setId(1L); // set a valid project id
+        assignProjectDto.setEmpId("12345"); // set a valid employee id
+
+        String jsonRequest = objectMapper.writeValueAsString(assignProjectDto);
+
+        // Act & Assert
         mockMvc.perform(post("/employee/assignProject")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonRequest))
