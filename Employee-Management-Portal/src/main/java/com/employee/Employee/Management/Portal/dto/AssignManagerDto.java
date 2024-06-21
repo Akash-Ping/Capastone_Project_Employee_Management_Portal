@@ -5,11 +5,11 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class AssignProjectDto {
+public class AssignManagerDto {
 
     @NotNull(message = "Project Id is required")
-    private Long id;
+    private Long projectId;
 
-    @NotBlank(message = "Employee Id is required")
-    private String empId;
+    @NotBlank(message = "Manager Id is required")
+    private String managerId;
 }

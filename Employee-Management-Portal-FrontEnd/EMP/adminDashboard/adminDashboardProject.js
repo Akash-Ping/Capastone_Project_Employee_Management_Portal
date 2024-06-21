@@ -114,6 +114,12 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'addProject.html';
     });
 
+        // Assign Manager button redirection
+        const assignButton = document.querySelector('.assign-btn');
+        assignButton.addEventListener('click', function () {
+            window.location.href = 'assignManager.html';
+        });
+
     // Sidebar navigation
     const sidebarItems = document.querySelectorAll('.sidebar-ele li');
     sidebarItems.forEach(item => {

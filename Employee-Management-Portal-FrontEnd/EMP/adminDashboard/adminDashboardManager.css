@@ -288,6 +288,11 @@ body {
         padding: 10px;
     }
 
+    .add-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
     .req-btn {
         padding: 5px 10px;
         font-size: 12px;
@@ -362,6 +367,11 @@ body {
         padding: 10px;
     }
 
+    .add-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    
     .req-btn {
         padding: 5px 10px;
         font-size: 12px;

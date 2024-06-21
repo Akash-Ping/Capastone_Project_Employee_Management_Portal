@@ -113,6 +113,23 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
+
+.assign-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    font-size: 14px;
+}
+
+.assign-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #004494);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
 .main-ele {
     padding: 20px;
     display: flex;
@@ -234,6 +251,11 @@ body {
         font-size: 12px;
     }
 
+    .assign-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
     .main-ele {
         gap: 10px;
     }
@@ -304,6 +326,11 @@ body {
     }
 
     .add-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .assign-btn {
         padding: 5px 10px;
         font-size: 12px;
     }

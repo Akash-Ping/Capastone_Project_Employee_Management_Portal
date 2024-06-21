@@ -74,12 +74,12 @@ document.addEventListener('DOMContentLoaded', function () {
             projectNameError.textContent = '';
         }
 
-        if (!managerId) {
-            managerError.textContent = 'Manager is required';
-            valid = false;
-        } else {
-            managerError.textContent = '';
-        }
+        // if (!managerId) {
+        //     managerError.textContent = 'Manager is required';
+        //     valid = false;
+        // } else {
+        //     managerError.textContent = '';
+        // }
 
         if (!startDate) {
             startDateError.textContent = 'Start date is required';

@@ -1,16 +1,6 @@
 package com.employee.Employee.Management.Portal.service;
 
-import com.employee.Employee.Management.Portal.dto.RegisterOutDto;
-import com.employee.Employee.Management.Portal.dto.ManagerOutDto;
-import com.employee.Employee.Management.Portal.dto.ManagerInfoDto;
-import com.employee.Employee.Management.Portal.dto.ApiResponseDto;
-import com.employee.Employee.Management.Portal.dto.AssignProjectDto;
-import com.employee.Employee.Management.Portal.dto.AssignProjectOutDto;
-import com.employee.Employee.Management.Portal.dto.FilterDto;
-import com.employee.Employee.Management.Portal.dto.ProjectDto;
-import com.employee.Employee.Management.Portal.dto.ProjectOutDto;
-import com.employee.Employee.Management.Portal.dto.SkillsOutDto;
-import com.employee.Employee.Management.Portal.dto.UserDto;
+import com.employee.Employee.Management.Portal.dto.*;
 import com.employee.Employee.Management.Portal.entity.Project;
 import com.employee.Employee.Management.Portal.entity.Role;
 import com.employee.Employee.Management.Portal.entity.Skills;
@@ -35,6 +25,7 @@ public class AdminService {
     private UserRepository userRepository;
     @Autowired
     private ProjectRepository projectRepository;
+
     public List<RegisterOutDto> getAllEmployee() {
         List<User> managerEntities = userRepository.findAllByRole(Role.EMPLOYEE);
         return convertToRegisterDto(managerEntities);
@@ -134,8 +125,18 @@ public class AdminService {
         projectEntity.setProjectName(projectDto.getProjectName());
         projectEntity.setDescription(projectDto.getDescription());
         projectEntity.setStartDate(projectDto.getStartDate());
-        Optional<User> user = userRepository.findById(projectDto.getManager());
-        projectEntity.setManager(user.get());
+//        Optional<User> user = userRepository.findById(projectDto.getManager());
+//        projectEntity.setManager(user.get());
+
+        // Handle optional manager
+        if (projectDto.getManager() != null) {
+            Optional<User> user = userRepository.findById(projectDto.getManager());
+            if (user.isPresent()) {
+                projectEntity.setManager(user.get());
+            } else {
+                return new ApiResponseDto("Manager not found");
+            }
+        }
         projectRepository.save(projectEntity);
         return new ApiResponseDto("Project added successfully");
     }
@@ -146,6 +147,31 @@ public class AdminService {
         return projectDtos;
     }
 
+//    private List<ProjectDto> convertToProjectDtoList(final List<Project> entities) {
+//        List<ProjectDto> dtos = new ArrayList<>();
+//        for (Project project : entities) {
+//            ProjectDto projectDto = new ProjectDto();
+//            projectDto.setId(project.getId());
+//            projectDto.setProjectName(project.getProjectName());
+//            projectDto.setDescription(project.getDescription());
+//            projectDto.setStartDate(project.getStartDate());
+//            projectDto.setManager(project.getManager().getId());
+//
+//            List<User> teamMembers = userRepository.findAllByEmpProjectId(project.getId());
+//            Optional<User> headEntity = userRepository.findById(project.getManager().getId());
+//            if (headEntity.isPresent()) {
+//                projectDto.setHead(headEntity.get().getName());
+//            }
+//            List<String> teamMemberNames = new ArrayList<>();
+//            for (User teamMember : teamMembers) {
+//                teamMemberNames.add(teamMember.getName());
+//            }
+//            projectDto.setTeamMembers(teamMemberNames);
+//            dtos.add(projectDto);
+//        }
+//        return dtos;
+//    }
+
     private List<ProjectDto> convertToProjectDtoList(final List<Project> entities) {
         List<ProjectDto> dtos = new ArrayList<>();
         for (Project project : entities) {
@@ -154,34 +180,117 @@ public class AdminService {
             projectDto.setProjectName(project.getProjectName());
             projectDto.setDescription(project.getDescription());
             projectDto.setStartDate(project.getStartDate());
-            projectDto.setManager(project.getManager().getId());
+
+            // Handle null manager
+            if (project.getManager() != null) {
+                projectDto.setManager(project.getManager().getId());
+
+                Optional<User> headEntity = userRepository.findById(project.getManager().getId());
+                if (headEntity.isPresent()) {
+                    projectDto.setHead(headEntity.get().getName());
+                } else {
+                    projectDto.setHead(null);
+                }
+            } else {
+                projectDto.setManager(null);
+                projectDto.setHead(null);
+            }
 
             List<User> teamMembers = userRepository.findAllByEmpProjectId(project.getId());
-            Optional<User> headEntity = userRepository.findById(project.getManager().getId());
-            if (headEntity.isPresent()) {
-                projectDto.setHead(headEntity.get().getName());
-            }
             List<String> teamMemberNames = new ArrayList<>();
             for (User teamMember : teamMembers) {
                 teamMemberNames.add(teamMember.getName());
             }
             projectDto.setTeamMembers(teamMemberNames);
+
             dtos.add(projectDto);
         }
         return dtos;
     }
 
+    public List<ProjectDto> getAllProjectsWithoutManager() {
+        List<Project> projectsWithoutManager = projectRepository.findByManagerIsNull();
+        return convertToProjectDtosList(projectsWithoutManager);
+    }
+
+    private List<ProjectDto> convertToProjectDtosList(final List<Project> entities) {
+        List<ProjectDto> dtos = new ArrayList<>();
+        for (Project project : entities) {
+            ProjectDto projectDto = new ProjectDto();
+            projectDto.setId(project.getId());
+            projectDto.setProjectName(project.getProjectName());
+            projectDto.setDescription(project.getDescription());
+            projectDto.setStartDate(project.getStartDate());
+
+            // Handle null manager
+            if (project.getManager() != null) {
+                projectDto.setManager(project.getManager().getId());
+
+                Optional<User> headEntity = userRepository.findById(project.getManager().getId());
+                if (headEntity.isPresent()) {
+                    projectDto.setHead(headEntity.get().getName());
+                } else {
+                    projectDto.setHead(null);
+                }
+            } else {
+                projectDto.setManager(null);
+                projectDto.setHead(null);
+            }
+
+            List<User> teamMembers = userRepository.findAllByEmpProjectId(project.getId());
+            List<String> teamMemberNames = new ArrayList<>();
+            for (User teamMember : teamMembers) {
+                teamMemberNames.add(teamMember.getName());
+            }
+            projectDto.setTeamMembers(teamMemberNames);
+
+            dtos.add(projectDto);
+        }
+        return dtos;
+    }
+
+    public ApiResponseDto assignManagerToProject(final AssignManagerDto assignManagerDto) {
+        Optional<Project> projectOpt = projectRepository.findById(assignManagerDto.getProjectId());
+        if (!projectOpt.isPresent()) {
+            return new ApiResponseDto("Project not found");
+        }
+
+        Project project = projectOpt.get();
+
+        User manager = userRepository.findByEmpId(assignManagerDto.getManagerId()).orElse(null);
+        if (manager == null) {
+            return new ApiResponseDto("Manager not found");
+        }
+
+        project.setManager(manager);
+        projectRepository.save(project);
+
+        return new ApiResponseDto("Manager assigned to project successfully");
+    }
+
     public List<AssignProjectOutDto> getAllProjectsForAssign() {
-        List<Project> projectEntities = projectRepository.findAll();
-       List<AssignProjectOutDto> assignProjectOutDtos = projectEntities.stream().map(project -> {
+//        List<Project> projectEntities = projectRepository.findAll();
+//       List<AssignProjectOutDto> assignProjectOutDtos = projectEntities.stream().map(project -> {
+//            AssignProjectOutDto assignProjectOutDto = new AssignProjectOutDto();
+//            assignProjectOutDto.setId(project.getId());
+//            assignProjectOutDto.setProjectName(project.getProjectName());
+//            return assignProjectOutDto;
+//        }).collect(Collectors.toList());
+//       return assignProjectOutDtos;
+
+        List<Project> projectEntities = projectRepository.findByManagerIsNotNull();
+
+        List<AssignProjectOutDto> assignProjectOutDtos = projectEntities.stream().map(project -> {
             AssignProjectOutDto assignProjectOutDto = new AssignProjectOutDto();
             assignProjectOutDto.setId(project.getId());
             assignProjectOutDto.setProjectName(project.getProjectName());
             return assignProjectOutDto;
         }).collect(Collectors.toList());
-       return assignProjectOutDtos;
 
+        return assignProjectOutDtos;
     }
+
+
 
 
     public List<ProjectOutDto> getAllByManagerId(final Long managerId) {
@@ -220,9 +329,32 @@ public class AdminService {
     }
 
     public ApiResponseDto assignProject(final AssignProjectDto assignProjectDto) {
+//        User user = userRepository.findByEmpId(assignProjectDto.getEmpId()).orElse(null);
+//        Optional<Project> project = projectRepository.findById(assignProjectDto.getId());
+//        user.setEmpManagerId(project.get().getManager().getId());
+//        user.setEmpProjectId(assignProjectDto.getId());
+//        userRepository.save(user);
+//
+//        return new ApiResponseDto("Project assigned successfully");
+
         User user = userRepository.findByEmpId(assignProjectDto.getEmpId()).orElse(null);
-        Optional<Project> project = projectRepository.findById(assignProjectDto.getId());
-        user.setEmpManagerId(project.get().getManager().getId());
+        if (user == null) {
+            return new ApiResponseDto("User not found");
+        }
+
+        Optional<Project> projectOpt = projectRepository.findById(assignProjectDto.getId());
+        if (!projectOpt.isPresent()) {
+            return new ApiResponseDto("Project not found");
+        }
+
+        Project project = projectOpt.get();
+
+        if (project.getManager() != null) {
+            user.setEmpManagerId(project.getManager().getId());
+        } else {
+            user.setEmpManagerId(null); // or handle it according to your business logic
+        }
+
         user.setEmpProjectId(assignProjectDto.getId());
         userRepository.save(user);
 

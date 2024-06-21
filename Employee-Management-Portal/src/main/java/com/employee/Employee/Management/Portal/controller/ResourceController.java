@@ -1,5 +1,6 @@
 package com.employee.Employee.Management.Portal.controller;
 
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.employee.Employee.Management.Portal.dto.ApiResponseDto;
@@ -31,7 +32,7 @@ public class ResourceController {
     private static final Logger logger = LoggerFactory.getLogger(ResourceController.class);
 
     @PostMapping("/requestResource/create")
-    public ApiResponseDto createRequestResource(
+    public ApiResponseDto createRequestResource(@Valid
             @RequestBody final RequestResourceDto requestResourceDto) {
         logger.info("Started create request resource controller");
         requestResourceService.createRequestResource(requestResourceDto);

@@ -9,7 +9,13 @@ import java.util.List;
     public interface ProjectRepository extends JpaRepository<Project, Long> {
         List<Project> findAllByManager(User managerId);
 
-//        List<Project> findAllByManagerId(Long id);
+        List<Project> findByManagerIsNull();
+
+//        List<Project> findAllByManagerIsNotNull();
+
+        List<Project> findByManagerIsNotNull();
+
+        List<Project> findAllByManagerId(Long id);
 
     }
 

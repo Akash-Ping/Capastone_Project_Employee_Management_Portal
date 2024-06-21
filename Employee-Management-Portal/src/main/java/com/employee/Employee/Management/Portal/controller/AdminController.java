@@ -1,17 +1,6 @@
 package com.employee.Employee.Management.Portal.controller;
 
-import com.employee.Employee.Management.Portal.dto.ApiResponseDto;
-import com.employee.Employee.Management.Portal.dto.AssignProjectDto;
-import com.employee.Employee.Management.Portal.dto.AssignProjectOutDto;
-import com.employee.Employee.Management.Portal.dto.FilterDto;
-import com.employee.Employee.Management.Portal.dto.ManagerOutDto;
-import com.employee.Employee.Management.Portal.dto.UserDto;
-import com.employee.Employee.Management.Portal.dto.ProjectDto;
-import com.employee.Employee.Management.Portal.dto.ProjectOutDto;
-import com.employee.Employee.Management.Portal.dto.ManagerInfoDto;
-import com.employee.Employee.Management.Portal.dto.RegisterDto;
-import com.employee.Employee.Management.Portal.dto.RegisterOutDto;
-import com.employee.Employee.Management.Portal.dto.SkillsOutDto;
+import com.employee.Employee.Management.Portal.dto.*;
 import com.employee.Employee.Management.Portal.entity.Skills;
 import com.employee.Employee.Management.Portal.entity.User;
 import com.employee.Employee.Management.Portal.service.AdminService;
@@ -128,7 +117,7 @@ public class AdminController {
     }
 
     @PostMapping("/addProject")
-    public ApiResponseDto addProject(@RequestBody final ProjectDto projectDto) {
+    public ApiResponseDto addProject(@Valid @RequestBody final ProjectDto projectDto) {
         logger.info("Started add project controller");
         ApiResponseDto response = adminService.addProject(projectDto);
         logger.info("Ended add project controller");
@@ -164,12 +153,28 @@ public class AdminController {
 
 
     @PostMapping("/assignProject")
-    public ApiResponseDto assignProject(
+    public ApiResponseDto assignProject(@Valid
              @RequestBody final AssignProjectDto assignProjectDto) {
         logger.info("Started assign project controller");
         ApiResponseDto apiResponseDto = adminService
                 .assignProject(assignProjectDto);
         logger.info("Ended assign project controller");
+        return apiResponseDto;
+    }
+
+    @GetMapping("/projectsWithoutManager")
+    public List<ProjectDto> getProjectsWithoutManager() {
+        logger.info("Started get projects without manager controller");
+        List<ProjectDto> projects = adminService.getAllProjectsWithoutManager();
+        logger.info("Ended get projects without manager controller");
+        return projects;
+    }
+
+    @PostMapping("/assignManager")
+    public ApiResponseDto assignManagerToProject(@Valid @RequestBody final AssignManagerDto assignManagerDto) {
+        logger.info("Started assign manager to project controller");
+        ApiResponseDto apiResponseDto = adminService.assignManagerToProject(assignManagerDto);
+        logger.info("Ended assign manager to project controller");
         return apiResponseDto;
     }
 
