@@ -257,6 +257,10 @@ public class AdminService {
 
         Project project = projectOpt.get();
 
+        if (project.getManager() != null) {
+            return new ApiResponseDto("Project already has a manager assigned");
+        }
+
         User manager = userRepository.findByEmpId(assignManagerDto.getManagerId()).orElse(null);
         if (manager == null) {
             return new ApiResponseDto("Manager not found");

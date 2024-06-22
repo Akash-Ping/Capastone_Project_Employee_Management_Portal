@@ -3947,3 +3947,951 @@ java.lang.IllegalStateException: ApplicationContext failure threshold (1) exceed
 2024-06-22T01:33:54.227+05:30  INFO 12284 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-06-22T01:33:54.227+05:30  INFO 12284 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
 2024-06-22T01:33:54.231+05:30  INFO 12284 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-06-22T01:36:48.489+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : Starting EmployeeManagementPortalApplication using Java 17.0.10 with PID 33444 (C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal\target\classes started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T01:36:48.493+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T01:36:48.559+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-22T01:36:48.559+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-22T01:36:49.811+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T01:36:49.944+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 4 JPA repository interfaces.
+2024-06-22T01:36:50.861+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-06-22T01:36:50.888+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-22T01:36:50.888+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-22T01:36:50.966+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-22T01:36:50.967+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2408 ms
+2024-06-22T01:36:51.184+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T01:36:51.266+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-22T01:36:51.305+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T01:36:51.637+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T01:36:51.680+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-22T01:36:51.932+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3fa23457
+2024-06-22T01:36:51.936+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-22T01:36:53.401+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T01:36:53.494+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T01:36:54.173+05:30  WARN 33444 --- [Employee-Management-Portal] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T01:36:54.510+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a81d7d2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43bb6d94, org.springframework.security.web.context.SecurityContextHolderFilter@1421857, org.springframework.security.web.header.HeaderWriterFilter@62dd48fe, org.springframework.web.filter.CorsFilter@2c7fbc65, org.springframework.security.web.authentication.logout.LogoutFilter@5527b775, com.employee.Employee.Management.Portal.config.JwtTokenValidator@591c77ed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1731286b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5313d335, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d97045b, org.springframework.security.web.session.SessionManagementFilter@47ce2171, org.springframework.security.web.access.ExceptionTranslationFilter@5d909d11, org.springframework.security.web.access.intercept.AuthorizationFilter@58342ef8]
+2024-06-22T01:36:54.767+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-22T01:36:54.802+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-06-22T01:36:54.817+05:30  INFO 33444 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : Started EmployeeManagementPortalApplication in 6.847 seconds (process running for 7.367)
+2024-06-22T01:36:58.446+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-22T01:36:58.447+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-22T01:36:58.448+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-22T01:36:59.234+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T01:36:59.295+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T01:37:00.772+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:00.791+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:00.833+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.865+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.910+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.916+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.929+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.943+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.944+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.954+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.954+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.955+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.961+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.964+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.972+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.973+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.974+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.979+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.979+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.979+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:00.982+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.986+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:00.990+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.010+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.178+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:01.295+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:37:01.810+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:01.823+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:01.838+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.839+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.845+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.851+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.864+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.888+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.898+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.899+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.900+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.905+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.910+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.912+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.913+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.913+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.917+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.922+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.923+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.923+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.927+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.928+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:01.936+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:01.955+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.227+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T01:37:02.240+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T01:37:02.664+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:02.673+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:02.685+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.685+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.686+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.688+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.691+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.692+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.692+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.694+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.696+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.701+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.702+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.704+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.707+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.708+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.709+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.710+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.710+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.717+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.718+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:02.718+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.722+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:02.738+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:03.420+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:03.508+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:37:04.887+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:04.894+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:04.907+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.909+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.911+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.914+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.916+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.917+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.917+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.921+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.922+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.922+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.927+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.928+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.929+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.929+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.930+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.938+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.938+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.939+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.939+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:04.941+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.942+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:04.956+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:05.491+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T01:37:05.505+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T01:37:07.895+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:07.905+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:07.916+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.919+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.919+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.922+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.922+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.922+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.923+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.927+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.927+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.931+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.936+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.936+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.937+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.938+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.940+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.943+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.943+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.951+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.953+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:07.953+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.955+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:07.968+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:09.769+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:09.840+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:37:19.524+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:19.534+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:19.542+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.542+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.549+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.550+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.551+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.551+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.551+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.552+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.555+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.556+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.559+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.560+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.562+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.563+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.565+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.570+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.571+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.572+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.572+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.572+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:19.575+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:19.588+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:23.920+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T01:37:23.931+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T01:37:27.396+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T01:37:29.155+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T01:37:29.167+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T01:37:30.208+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:30.217+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:30.227+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.227+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.234+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.234+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.236+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.236+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.237+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.238+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.240+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.241+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.244+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.248+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.248+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.250+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.251+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.256+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.256+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:30.256+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.256+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.257+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.262+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:30.276+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:31.245+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.ResourceController  : Started get all resource requests controller
+2024-06-22T01:37:31.258+05:30  WARN 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.employee.Employee.Management.Portal.exception.DataNotFoundException: No requests found]
+2024-06-22T01:37:33.288+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:33.296+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:33.307+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.310+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.314+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.317+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.320+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.320+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.320+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.320+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.320+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.325+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.326+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.331+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.336+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.337+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.337+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.338+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.341+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.343+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.344+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.345+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:33.346+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:33.365+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:34.092+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:34.149+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:37:35.341+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all managers info controller
+2024-06-22T01:37:35.348+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all managers info controller
+2024-06-22T01:37:36.819+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:36.875+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:37:37.507+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all managers info controller
+2024-06-22T01:37:37.515+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all managers info controller
+2024-06-22T01:37:37.521+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get projects without manager controller
+2024-06-22T01:37:37.529+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get projects without manager controller
+2024-06-22T01:37:38.735+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:38.806+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:37:47.840+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.EmployeeController  : Started get employee by email controller
+2024-06-22T01:37:47.847+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.EmployeeController  : Ended get employee by email controller
+2024-06-22T01:37:50.695+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T01:37:50.701+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get filtered users controller
+2024-06-22T01:37:50.710+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get filtered users controller
+2024-06-22T01:37:50.721+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.ResourceController  : Started is requested controller
+2024-06-22T01:37:50.721+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.ResourceController  : Started is requested controller
+2024-06-22T01:37:50.736+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.ResourceController  : Ended is requested controller
+2024-06-22T01:37:50.736+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.ResourceController  : Ended is requested controller
+2024-06-22T01:37:51.517+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:51.522+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:51.536+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.538+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.538+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.540+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.540+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.542+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.545+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.549+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.549+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.550+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.553+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.553+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.554+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.554+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.554+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.555+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.558+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.559+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.560+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:51.563+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.566+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.576+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:51.978+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:52.042+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:37:52.303+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:52.360+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:37:52.732+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:52.740+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:52.761+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.764+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.764+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.765+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.765+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.766+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.766+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.768+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.769+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.772+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.772+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.772+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.774+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.776+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.779+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.779+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.780+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.782+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.784+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.786+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:52.787+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:52.800+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:53.203+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T01:37:53.203+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get filtered users controller
+2024-06-22T01:37:53.212+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get filtered users controller
+2024-06-22T01:37:53.219+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.ResourceController  : Started is requested controller
+2024-06-22T01:37:53.219+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.ResourceController  : Started is requested controller
+2024-06-22T01:37:53.224+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.ResourceController  : Ended is requested controller
+2024-06-22T01:37:53.225+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.ResourceController  : Ended is requested controller
+2024-06-22T01:37:53.702+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.EmployeeController  : Started get employee by email controller
+2024-06-22T01:37:53.705+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.EmployeeController  : Ended get employee by email controller
+2024-06-22T01:37:54.348+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T01:37:54.348+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get filtered users controller
+2024-06-22T01:37:54.354+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get filtered users controller
+2024-06-22T01:37:54.365+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.ResourceController  : Started is requested controller
+2024-06-22T01:37:54.365+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.ResourceController  : Started is requested controller
+2024-06-22T01:37:54.370+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.ResourceController  : Ended is requested controller
+2024-06-22T01:37:54.370+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.ResourceController  : Ended is requested controller
+2024-06-22T01:37:54.827+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T01:37:54.833+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T01:37:54.841+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.843+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.847+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.848+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.848+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.850+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.850+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.851+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.851+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.853+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.856+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.856+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.857+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.858+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-5] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.858+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-1] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.862+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.862+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.865+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.867+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.867+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T01:37:54.871+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:54.883+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-7] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T01:37:55.236+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T01:37:55.287+05:30  INFO 33444 --- [Employee-Management-Portal] [http-nio-8080-exec-4] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T01:38:00.865+05:30  INFO 33444 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T01:38:00.869+05:30  INFO 33444 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-22T01:38:00.872+05:30  INFO 33444 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-22T07:06:07.162+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : Starting EmployeeManagementPortalApplication using Java 17.0.10 with PID 15552 (C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal\target\classes started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:06:07.164+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:06:07.227+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-22T07:06:07.227+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-22T07:06:08.321+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:06:08.449+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:06:09.342+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-06-22T07:06:09.370+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-22T07:06:09.371+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-22T07:06:09.447+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-22T07:06:09.447+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2220 ms
+2024-06-22T07:06:09.638+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:06:09.763+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-22T07:06:09.815+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:06:10.111+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:06:10.165+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-22T07:06:10.393+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3b37a61c
+2024-06-22T07:06:10.397+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-22T07:06:11.682+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:06:11.894+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:06:12.454+05:30  WARN 15552 --- [Employee-Management-Portal] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:06:12.831+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@12e175f3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5db1e11a, org.springframework.security.web.context.SecurityContextHolderFilter@3357f745, org.springframework.security.web.header.HeaderWriterFilter@5ae29f20, org.springframework.web.filter.CorsFilter@354579c6, org.springframework.security.web.authentication.logout.LogoutFilter@4574f7ec, com.employee.Employee.Management.Portal.config.JwtTokenValidator@68006477, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55a8329b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6950bdc9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7157ca69, org.springframework.security.web.session.SessionManagementFilter@62dd48fe, org.springframework.security.web.access.ExceptionTranslationFilter@585273a2, org.springframework.security.web.access.intercept.AuthorizationFilter@58d2e9bc]
+2024-06-22T07:06:13.076+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-22T07:06:13.116+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-06-22T07:06:13.126+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : Started EmployeeManagementPortalApplication in 6.603 seconds (process running for 7.329)
+2024-06-22T07:07:22.460+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-22T07:07:22.460+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-22T07:07:22.462+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-22T07:07:22.711+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started assign project controller
+2024-06-22T07:07:22.936+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended assign project controller
+2024-06-22T07:07:59.943+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T07:07:59.963+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T07:08:00.812+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T07:08:00.958+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-8] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T07:08:02.019+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started get all managers info controller
+2024-06-22T07:08:02.039+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended get all managers info controller
+2024-06-22T07:08:10.941+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Started add project controller
+2024-06-22T07:08:10.967+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-2] c.e.E.M.P.controller.AdminController     : Ended add project controller
+2024-06-22T07:08:11.959+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T07:08:12.022+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-3] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T07:08:50.614+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Started assign project controller
+2024-06-22T07:08:50.622+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-6] c.e.E.M.P.controller.AdminController     : Ended assign project controller
+2024-06-22T07:09:48.221+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Started assign manager to project controller
+2024-06-22T07:09:48.225+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-9] c.e.E.M.P.controller.AdminController     : Ended assign manager to project controller
+2024-06-22T07:10:20.756+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Started assign manager to project controller
+2024-06-22T07:10:20.763+05:30  INFO 15552 --- [Employee-Management-Portal] [http-nio-8080-exec-10] c.e.E.M.P.controller.AdminController     : Ended assign manager to project controller
+2024-06-22T07:10:52.817+05:30  INFO 2912 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : Starting EmployeeManagementPortalApplicationTests using Java 17.0.10 with PID 2912 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:10:52.819+05:30  INFO 2912 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:10:53.679+05:30  INFO 2912 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:10:53.791+05:30  INFO 2912 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:10:54.462+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:10:54.590+05:30  INFO 2912 --- [Employee-Management-Portal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-22T07:10:54.632+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:10:54.739+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:10:54.764+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-22T07:10:54.981+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@52cda4bd
+2024-06-22T07:10:54.984+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-22T07:10:56.087+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:10:56.176+05:30  INFO 2912 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:10:56.686+05:30  WARN 2912 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:10:56.983+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5e6d2502, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26be5ee, org.springframework.security.web.context.SecurityContextHolderFilter@22351330, org.springframework.security.web.header.HeaderWriterFilter@39d8240b, org.springframework.web.filter.CorsFilter@6845dfcc, org.springframework.security.web.authentication.logout.LogoutFilter@127e838b, com.employee.Employee.Management.Portal.config.JwtTokenValidator@5415ed48, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72238cf0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e32261f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@636787fd, org.springframework.security.web.session.SessionManagementFilter@75eed00f, org.springframework.security.web.access.ExceptionTranslationFilter@5a96081a, org.springframework.security.web.access.intercept.AuthorizationFilter@64d711b0]
+2024-06-22T07:10:57.274+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:10:57.274+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:10:57.275+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:10:57.297+05:30  INFO 2912 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : Started EmployeeManagementPortalApplicationTests in 4.913 seconds (process running for 10.417)
+2024-06-22T07:10:58.207+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:10:58.207+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:10:58.207+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:10:58.209+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.RegisterController  : Started register controller
+2024-06-22T07:10:58.210+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.RegisterController  : Ended register controller
+2024-06-22T07:10:58.306+05:30  INFO 2912 --- [Employee-Management-Portal] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.employee.Employee.Management.Portal.controller.AdminControllerTest]: AdminControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-22T07:10:58.323+05:30  INFO 2912 --- [Employee-Management-Portal] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.employee.Employee.Management.Portal.EmployeeManagementPortalApplication for test class com.employee.Employee.Management.Portal.controller.AdminControllerTest
+2024-06-22T07:10:58.327+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2024-06-22T07:10:58.358+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : Starting AdminControllerTest using Java 17.0.10 with PID 2912 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:10:58.358+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:10:58.546+05:30  INFO 2912 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:10:58.563+05:30  INFO 2912 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:10:58.671+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:10:58.674+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:10:58.677+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:10:58.678+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-06-22T07:10:58.720+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@23fb943e
+2024-06-22T07:10:58.721+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-06-22T07:10:58.822+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:10:58.893+05:30  INFO 2912 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:10:58.950+05:30  WARN 2912 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:10:59.034+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4a5939cb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63e67888, org.springframework.security.web.context.SecurityContextHolderFilter@5a1dda88, org.springframework.security.web.header.HeaderWriterFilter@3ad32e52, org.springframework.web.filter.CorsFilter@308508ec, org.springframework.security.web.authentication.logout.LogoutFilter@e64ee56, com.employee.Employee.Management.Portal.config.JwtTokenValidator@324bb7fb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4d44f385, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e46f5c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@315f4718, org.springframework.security.web.session.SessionManagementFilter@5f016147, org.springframework.security.web.access.ExceptionTranslationFilter@682fec32, org.springframework.security.web.access.intercept.AuthorizationFilter@3de7e572]
+2024-06-22T07:10:59.108+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:10:59.108+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:10:59.109+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:10:59.118+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : Started AdminControllerTest in 0.792 seconds (process running for 12.238)
+2024-06-22T07:10:59.132+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get filtered users controller
+2024-06-22T07:10:59.133+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get filtered users controller
+2024-06-22T07:10:59.155+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started unassign project controller
+2024-06-22T07:10:59.155+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended unassign project controller
+2024-06-22T07:10:59.161+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T07:10:59.161+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T07:10:59.190+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started add user controller
+2024-06-22T07:10:59.190+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended add user controller
+2024-06-22T07:10:59.197+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started update user controller
+2024-06-22T07:10:59.197+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended update user controller
+2024-06-22T07:10:59.204+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all managers info controller
+2024-06-22T07:10:59.204+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all managers info controller
+2024-06-22T07:10:59.209+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get userDetails controller
+2024-06-22T07:10:59.209+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get userDetails controller
+2024-06-22T07:10:59.212+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get userDetails controller
+2024-06-22T07:10:59.212+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get userDetails controller
+2024-06-22T07:10:59.217+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get employee skill controller
+2024-06-22T07:10:59.217+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get employee skill controller
+2024-06-22T07:10:59.228+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started assign project controller
+2024-06-22T07:10:59.229+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended assign project controller
+2024-06-22T07:10:59.233+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T07:10:59.233+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T07:10:59.238+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T07:10:59.240+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T07:10:59.245+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects for assign controller
+2024-06-22T07:10:59.245+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects for assign controller
+2024-06-22T07:10:59.255+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started add project controller
+2024-06-22T07:10:59.256+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended add project controller
+2024-06-22T07:10:59.262+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T07:10:59.262+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T07:10:59.268+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all employees and managers controller
+2024-06-22T07:10:59.268+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all employees and managers controller
+2024-06-22T07:10:59.275+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started delete employee controller
+2024-06-22T07:10:59.275+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended delete employee controller
+2024-06-22T07:10:59.280+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T07:10:59.280+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T07:10:59.284+05:30  INFO 2912 --- [Employee-Management-Portal] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.employee.Employee.Management.Portal.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-22T07:10:59.287+05:30  INFO 2912 --- [Employee-Management-Portal] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.employee.Employee.Management.Portal.EmployeeManagementPortalApplication for test class com.employee.Employee.Management.Portal.controller.AuthControllerTest
+2024-06-22T07:10:59.290+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2024-06-22T07:10:59.319+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : Starting AuthControllerTest using Java 17.0.10 with PID 2912 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:10:59.320+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:10:59.516+05:30  INFO 2912 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:10:59.530+05:30  INFO 2912 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:10:59.653+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:10:59.656+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:10:59.660+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:10:59.661+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-06-22T07:10:59.700+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@7c900524
+2024-06-22T07:10:59.700+05:30  INFO 2912 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-06-22T07:10:59.784+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:10:59.852+05:30  INFO 2912 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:10:59.924+05:30  WARN 2912 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:10:59.988+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@342686f4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@cda6100, org.springframework.security.web.context.SecurityContextHolderFilter@28d78140, org.springframework.security.web.header.HeaderWriterFilter@45055c82, org.springframework.web.filter.CorsFilter@2c8eb04e, org.springframework.security.web.authentication.logout.LogoutFilter@482e1d45, com.employee.Employee.Management.Portal.config.JwtTokenValidator@431f2a86, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@232a4cc5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c24e56e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@438e1537, org.springframework.security.web.session.SessionManagementFilter@4abb5d17, org.springframework.security.web.access.ExceptionTranslationFilter@32472631, org.springframework.security.web.access.intercept.AuthorizationFilter@52f7a138]
+2024-06-22T07:11:00.055+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:11:00.055+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:11:00.056+05:30  INFO 2912 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:11:00.064+05:30  INFO 2912 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : Started AuthControllerTest in 0.774 seconds (process running for 13.183)
+2024-06-22T07:11:00.261+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:00.270+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-22T07:11:00.273+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-22T07:11:00.278+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:00.278+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-06-22T07:11:00.281+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-06-22T07:11:00.284+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:00.284+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-06-22T07:11:00.293+05:30  INFO 2912 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-06-22T07:11:14.297+05:30  INFO 4296 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : Starting EmployeeManagementPortalApplicationTests using Java 17.0.10 with PID 4296 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:11:14.300+05:30  INFO 4296 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:11:15.197+05:30  INFO 4296 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:11:15.306+05:30  INFO 4296 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:11:15.996+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:11:16.106+05:30  INFO 4296 --- [Employee-Management-Portal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-22T07:11:16.184+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:11:16.439+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:11:16.493+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-22T07:11:16.936+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@17addae
+2024-06-22T07:11:16.939+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-22T07:11:18.740+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:11:18.876+05:30  INFO 4296 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:19.535+05:30  WARN 4296 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:11:19.913+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65518f65, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73508aaf, org.springframework.security.web.context.SecurityContextHolderFilter@33943159, org.springframework.security.web.header.HeaderWriterFilter@d5fdacc, org.springframework.web.filter.CorsFilter@2cf7040, org.springframework.security.web.authentication.logout.LogoutFilter@31f715a1, com.employee.Employee.Management.Portal.config.JwtTokenValidator@de224fb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1495fde4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@73c8bc1b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64a1b885, org.springframework.security.web.session.SessionManagementFilter@5722e560, org.springframework.security.web.access.ExceptionTranslationFilter@471c2d20, org.springframework.security.web.access.intercept.AuthorizationFilter@35e47e6e]
+2024-06-22T07:11:20.265+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:11:20.265+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:11:20.266+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:11:20.284+05:30  INFO 4296 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : Started EmployeeManagementPortalApplicationTests in 6.475 seconds (process running for 13.713)
+2024-06-22T07:11:21.329+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:11:21.329+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:11:21.329+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:11:21.333+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.RegisterController  : Started register controller
+2024-06-22T07:11:21.334+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.RegisterController  : Ended register controller
+2024-06-22T07:11:21.460+05:30  INFO 4296 --- [Employee-Management-Portal] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.employee.Employee.Management.Portal.controller.AdminControllerTest]: AdminControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-22T07:11:21.480+05:30  INFO 4296 --- [Employee-Management-Portal] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.employee.Employee.Management.Portal.EmployeeManagementPortalApplication for test class com.employee.Employee.Management.Portal.controller.AdminControllerTest
+2024-06-22T07:11:21.484+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2024-06-22T07:11:21.515+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : Starting AdminControllerTest using Java 17.0.10 with PID 4296 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:11:21.515+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:11:21.719+05:30  INFO 4296 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:11:21.738+05:30  INFO 4296 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:11:21.894+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:11:21.897+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:11:21.902+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:11:21.903+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-06-22T07:11:21.949+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1744fcca
+2024-06-22T07:11:21.949+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-06-22T07:11:22.057+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:11:22.135+05:30  INFO 4296 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:22.213+05:30  WARN 4296 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:11:22.295+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@111ecbdb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@508c2638, org.springframework.security.web.context.SecurityContextHolderFilter@e34e6c5, org.springframework.security.web.header.HeaderWriterFilter@573c8ab2, org.springframework.web.filter.CorsFilter@3e958934, org.springframework.security.web.authentication.logout.LogoutFilter@4730cc6c, com.employee.Employee.Management.Portal.config.JwtTokenValidator@693dad03, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@496dab1e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a37d19b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e1af3ec, org.springframework.security.web.session.SessionManagementFilter@37646b92, org.springframework.security.web.access.ExceptionTranslationFilter@264c2a4f, org.springframework.security.web.access.intercept.AuthorizationFilter@275e1439]
+2024-06-22T07:11:22.376+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:11:22.376+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:11:22.376+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:11:22.384+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : Started AdminControllerTest in 0.9 seconds (process running for 15.812)
+2024-06-22T07:11:22.402+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get filtered users controller
+2024-06-22T07:11:22.403+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get filtered users controller
+2024-06-22T07:11:22.432+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started unassign project controller
+2024-06-22T07:11:22.432+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended unassign project controller
+2024-06-22T07:11:22.441+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T07:11:22.442+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T07:11:22.482+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started add user controller
+2024-06-22T07:11:22.482+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended add user controller
+2024-06-22T07:11:22.497+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started update user controller
+2024-06-22T07:11:22.497+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended update user controller
+2024-06-22T07:11:22.509+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all managers info controller
+2024-06-22T07:11:22.510+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all managers info controller
+2024-06-22T07:11:22.517+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get userDetails controller
+2024-06-22T07:11:22.517+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get userDetails controller
+2024-06-22T07:11:22.523+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get userDetails controller
+2024-06-22T07:11:22.523+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get userDetails controller
+2024-06-22T07:11:22.531+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get employee skill controller
+2024-06-22T07:11:22.531+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get employee skill controller
+2024-06-22T07:11:22.556+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started assign project controller
+2024-06-22T07:11:22.556+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended assign project controller
+2024-06-22T07:11:22.565+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T07:11:22.565+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T07:11:22.574+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T07:11:22.577+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T07:11:22.585+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects for assign controller
+2024-06-22T07:11:22.585+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects for assign controller
+2024-06-22T07:11:22.602+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started add project controller
+2024-06-22T07:11:22.602+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended add project controller
+2024-06-22T07:11:22.611+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T07:11:22.612+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T07:11:22.621+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all employees and managers controller
+2024-06-22T07:11:22.621+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all employees and managers controller
+2024-06-22T07:11:22.628+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started delete employee controller
+2024-06-22T07:11:22.629+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended delete employee controller
+2024-06-22T07:11:22.636+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T07:11:22.636+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T07:11:22.643+05:30  INFO 4296 --- [Employee-Management-Portal] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.employee.Employee.Management.Portal.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-22T07:11:22.646+05:30  INFO 4296 --- [Employee-Management-Portal] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.employee.Employee.Management.Portal.EmployeeManagementPortalApplication for test class com.employee.Employee.Management.Portal.controller.AuthControllerTest
+2024-06-22T07:11:22.650+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2024-06-22T07:11:22.684+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : Starting AuthControllerTest using Java 17.0.10 with PID 4296 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:11:22.684+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:11:22.916+05:30  INFO 4296 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:11:22.933+05:30  INFO 4296 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:11:23.106+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:11:23.110+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:11:23.115+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:11:23.116+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-06-22T07:11:23.155+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@4eb5597
+2024-06-22T07:11:23.156+05:30  INFO 4296 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-06-22T07:11:23.280+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:11:23.356+05:30  INFO 4296 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:23.427+05:30  WARN 4296 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:11:23.505+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@505c9d54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52edf4d7, org.springframework.security.web.context.SecurityContextHolderFilter@74eaf39f, org.springframework.security.web.header.HeaderWriterFilter@48dd946d, org.springframework.web.filter.CorsFilter@19be57b7, org.springframework.security.web.authentication.logout.LogoutFilter@2a3500c8, com.employee.Employee.Management.Portal.config.JwtTokenValidator@6cd2a4eb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ef332b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7aa9bbff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58502218, org.springframework.security.web.session.SessionManagementFilter@a2f32a8, org.springframework.security.web.access.ExceptionTranslationFilter@26518c4e, org.springframework.security.web.access.intercept.AuthorizationFilter@5ad5f982]
+2024-06-22T07:11:23.587+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:11:23.588+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:11:23.589+05:30  INFO 4296 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:11:23.597+05:30  INFO 4296 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : Started AuthControllerTest in 0.948 seconds (process running for 17.025)
+2024-06-22T07:11:23.844+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:23.846+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-22T07:11:23.851+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-22T07:11:23.859+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:23.860+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-06-22T07:11:23.863+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-06-22T07:11:23.866+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:23.867+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-06-22T07:11:23.921+05:30  INFO 4296 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-06-22T07:11:39.818+05:30  INFO 15552 --- [Employee-Management-Portal] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 55 class path changes (0 additions, 55 deletions, 0 modifications)
+2024-06-22T07:11:39.840+05:30  INFO 15552 --- [Employee-Management-Portal] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:39.846+05:30  INFO 15552 --- [Employee-Management-Portal] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-22T07:11:39.851+05:30  INFO 15552 --- [Employee-Management-Portal] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-22T07:11:45.827+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : Starting EmployeeManagementPortalApplication using Java 17.0.10 with PID 15552 (C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal\target\classes started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:11:45.827+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:11:46.021+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:11:46.023+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2024-06-22T07:11:46.118+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-06-22T07:11:46.119+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-22T07:11:46.119+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-22T07:11:46.137+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-06-22T07:11:46.137+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 307 ms
+2024-06-22T07:11:46.170+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:11:46.174+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:11:46.178+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:11:46.179+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-06-22T07:11:46.243+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@71af8a78
+2024-06-22T07:11:46.243+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-06-22T07:11:46.272+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:11:46.272+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:46.294+05:30  WARN 15552 --- [Employee-Management-Portal] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:11:46.429+05:30  WARN 15552 --- [Employee-Management-Portal] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 4f13e0b9-12b2-486f-93cb-cabc477a0bfe
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-22T07:11:46.469+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@29fe7d99, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@377d08fd, org.springframework.security.web.context.SecurityContextHolderFilter@79727c5c, org.springframework.security.web.header.HeaderWriterFilter@7d6a1c26, org.springframework.web.filter.CorsFilter@672f2935, org.springframework.security.web.csrf.CsrfFilter@204e4154, org.springframework.security.web.authentication.logout.LogoutFilter@1f1bf74f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@9d632f1, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@768b53f7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@23310856, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6f256fe1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b64c6c7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5badff88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7979bb1c, org.springframework.security.web.access.ExceptionTranslationFilter@7510a536, org.springframework.security.web.access.intercept.AuthorizationFilter@256c9298]
+2024-06-22T07:11:46.487+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-22T07:11:46.501+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-06-22T07:11:46.506+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : Started EmployeeManagementPortalApplication in 0.716 seconds (process running for 340.709)
+2024-06-22T07:11:46.512+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration matched:
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+      - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-06-22T07:11:48.944+05:30  INFO 15552 --- [Employee-Management-Portal] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 54 class path changes (54 additions, 0 deletions, 0 modifications)
+2024-06-22T07:11:48.955+05:30  INFO 15552 --- [Employee-Management-Portal] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:48.956+05:30  INFO 15552 --- [Employee-Management-Portal] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-06-22T07:11:48.960+05:30  INFO 15552 --- [Employee-Management-Portal] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-06-22T07:11:49.053+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : Starting EmployeeManagementPortalApplication using Java 17.0.10 with PID 15552 (C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal\target\classes started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:11:49.053+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:11:49.309+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:11:49.343+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:11:49.454+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-06-22T07:11:49.455+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-22T07:11:49.455+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-22T07:11:49.486+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-06-22T07:11:49.486+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 431 ms
+2024-06-22T07:11:49.521+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:11:49.525+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:11:49.532+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:11:49.533+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-06-22T07:11:49.584+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@388b10a4
+2024-06-22T07:11:49.584+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-06-22T07:11:49.739+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:11:49.848+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:11:50.010+05:30  WARN 15552 --- [Employee-Management-Portal] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:11:50.094+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f75c897, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@150bc492, org.springframework.security.web.context.SecurityContextHolderFilter@18c2df7e, org.springframework.security.web.header.HeaderWriterFilter@3c751d1a, org.springframework.web.filter.CorsFilter@212c9f1, org.springframework.security.web.authentication.logout.LogoutFilter@7d2cf902, com.employee.Employee.Management.Portal.config.JwtTokenValidator@7cdeacdb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@368f85b9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2206d3bf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d4ef2a7, org.springframework.security.web.session.SessionManagementFilter@3f5dd225, org.springframework.security.web.access.ExceptionTranslationFilter@2ef00275, org.springframework.security.web.access.intercept.AuthorizationFilter@234baf3f]
+2024-06-22T07:11:50.142+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-22T07:11:50.151+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-06-22T07:11:50.156+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .M.P.EmployeeManagementPortalApplication : Started EmployeeManagementPortalApplication in 1.145 seconds (process running for 344.359)
+2024-06-22T07:11:50.160+05:30  INFO 15552 --- [Employee-Management-Portal] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' securityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) found beans of type 'org.springframework.security.core.userdetails.UserDetailsService' customUserDetails (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+         - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-06-22T07:11:57.917+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : Starting AdminControllerTest using Java 17.0.10 with PID 36808 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:11:57.920+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:11:59.144+05:30  INFO 36808 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:11:59.287+05:30  INFO 36808 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:12:00.471+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:12:00.608+05:30  INFO 36808 --- [Employee-Management-Portal] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-22T07:12:00.697+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:12:00.942+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:12:01.005+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-22T07:12:01.328+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@321d3e08
+2024-06-22T07:12:01.331+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-22T07:12:03.496+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:12:03.641+05:30  INFO 36808 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:12:04.317+05:30  WARN 36808 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:12:04.868+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@91115f9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ccb535f, org.springframework.security.web.context.SecurityContextHolderFilter@7880465a, org.springframework.security.web.header.HeaderWriterFilter@4b4bf383, org.springframework.web.filter.CorsFilter@48545dfa, org.springframework.security.web.authentication.logout.LogoutFilter@2c109548, com.employee.Employee.Management.Portal.config.JwtTokenValidator@75f3b79e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d8528bd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@49996836, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@744cca04, org.springframework.security.web.session.SessionManagementFilter@53adcf13, org.springframework.security.web.access.ExceptionTranslationFilter@3f8681c5, org.springframework.security.web.access.intercept.AuthorizationFilter@4a8bf89c]
+2024-06-22T07:12:05.387+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:05.388+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:05.389+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:12:05.421+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.c.AdminControllerTest          : Started AdminControllerTest in 8.133 seconds (process running for 13.998)
+2024-06-22T07:12:05.624+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get filtered users controller
+2024-06-22T07:12:05.625+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get filtered users controller
+2024-06-22T07:12:05.739+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started unassign project controller
+2024-06-22T07:12:05.741+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended unassign project controller
+2024-06-22T07:12:05.751+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all managers controller
+2024-06-22T07:12:05.751+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all managers controller
+2024-06-22T07:12:05.837+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started add user controller
+2024-06-22T07:12:05.838+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended add user controller
+2024-06-22T07:12:05.848+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started update user controller
+2024-06-22T07:12:05.849+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended update user controller
+2024-06-22T07:12:05.860+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all managers info controller
+2024-06-22T07:12:05.860+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all managers info controller
+2024-06-22T07:12:05.868+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get userDetails controller
+2024-06-22T07:12:05.868+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get userDetails controller
+2024-06-22T07:12:05.872+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get userDetails controller
+2024-06-22T07:12:05.872+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get userDetails controller
+2024-06-22T07:12:05.880+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get employee skill controller
+2024-06-22T07:12:05.880+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get employee skill controller
+2024-06-22T07:12:05.896+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started assign project controller
+2024-06-22T07:12:05.896+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended assign project controller
+2024-06-22T07:12:05.903+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects by manager id controller
+2024-06-22T07:12:05.903+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects by manager id controller
+2024-06-22T07:12:05.909+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T07:12:05.911+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all skills controller
+2024-06-22T07:12:05.917+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects for assign controller
+2024-06-22T07:12:05.918+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects for assign controller
+2024-06-22T07:12:05.930+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started add project controller
+2024-06-22T07:12:05.931+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended add project controller
+2024-06-22T07:12:05.937+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all employees controller
+2024-06-22T07:12:05.938+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all employees controller
+2024-06-22T07:12:05.944+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all employees and managers controller
+2024-06-22T07:12:05.944+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all employees and managers controller
+2024-06-22T07:12:05.951+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started delete employee controller
+2024-06-22T07:12:05.952+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended delete employee controller
+2024-06-22T07:12:05.959+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Started get all projects controller
+2024-06-22T07:12:05.959+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AdminController     : Ended get all projects controller
+2024-06-22T07:12:05.969+05:30  INFO 36808 --- [Employee-Management-Portal] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.employee.Employee.Management.Portal.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-22T07:12:05.973+05:30  INFO 36808 --- [Employee-Management-Portal] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.employee.Employee.Management.Portal.EmployeeManagementPortalApplication for test class com.employee.Employee.Management.Portal.controller.AuthControllerTest
+2024-06-22T07:12:05.977+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2024-06-22T07:12:06.017+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : Starting AuthControllerTest using Java 17.0.10 with PID 36808 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:12:06.018+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:12:06.271+05:30  INFO 36808 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:12:06.292+05:30  INFO 36808 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:12:06.498+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:12:06.502+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:12:06.517+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:12:06.518+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-06-22T07:12:06.582+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@2b2a94a4
+2024-06-22T07:12:06.583+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-06-22T07:12:06.723+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:12:06.797+05:30  INFO 36808 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:12:06.921+05:30  WARN 36808 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:12:07.010+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43bb2bea, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5826928f, org.springframework.security.web.context.SecurityContextHolderFilter@764fd7ab, org.springframework.security.web.header.HeaderWriterFilter@2f7262b0, org.springframework.web.filter.CorsFilter@4e841181, org.springframework.security.web.authentication.logout.LogoutFilter@637f1f25, com.employee.Employee.Management.Portal.config.JwtTokenValidator@64bfcb1f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b32dc20, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57695414, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ec14819, org.springframework.security.web.session.SessionManagementFilter@411fa9f9, org.springframework.security.web.access.ExceptionTranslationFilter@778d4db7, org.springframework.security.web.access.intercept.AuthorizationFilter@385329c]
+2024-06-22T07:12:07.107+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.108+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.109+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:12:07.117+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.AuthControllerTest  : Started AuthControllerTest in 1.14 seconds (process running for 15.694)
+2024-06-22T07:12:07.299+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.300+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.301+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:12:07.301+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.EmployeeController  : Started get employee by email controller
+2024-06-22T07:12:07.302+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.EmployeeController  : Ended get employee by email controller
+2024-06-22T07:12:07.347+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.348+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.348+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.351+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.EmployeeController  : Started update skills of employee controller
+2024-06-22T07:12:07.352+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.EmployeeController  : Ended update skills of employee controller
+2024-06-22T07:12:07.364+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.365+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.365+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.367+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.EmployeeController  : Started update skills of employee controller
+2024-06-22T07:12:07.367+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.EmployeeController  : Ended update skills of employee controller
+2024-06-22T07:12:07.381+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.381+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.381+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.384+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.EmployeeController  : Started update password controller
+2024-06-22T07:12:07.385+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.EmployeeController  : Ended update password controller
+2024-06-22T07:12:07.400+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.401+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.401+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.405+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.RegisterController  : Started register controller
+2024-06-22T07:12:07.405+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.RegisterController  : Ended register controller
+2024-06-22T07:12:07.463+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.463+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.463+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.474+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Started create request resource controller
+2024-06-22T07:12:07.474+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Ended create request resource controller
+2024-06-22T07:12:07.484+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.484+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.485+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:12:07.485+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Started get all resource requests controller
+2024-06-22T07:12:07.485+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Ended get all resource requests controller
+2024-06-22T07:12:07.501+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.501+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.501+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.503+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Started is requested controller
+2024-06-22T07:12:07.503+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Ended is requested controller
+2024-06-22T07:12:07.515+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.515+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.515+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.516+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Started get all by manager email controller
+2024-06-22T07:12:07.516+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Ended get all by manager email controller
+2024-06-22T07:12:07.526+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.526+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.526+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.527+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Started get all by manager email controller
+2024-06-22T07:12:07.527+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Ended get all by manager email controller
+2024-06-22T07:12:07.538+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.538+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.539+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:12:07.540+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Started is requested controller
+2024-06-22T07:12:07.540+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Ended is requested controller
+2024-06-22T07:12:07.551+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.551+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.551+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-06-22T07:12:07.552+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Started reject resource request controller
+2024-06-22T07:12:07.552+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Ended reject resource request controller
+2024-06-22T07:12:07.562+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:07.562+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:07.563+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:12:07.563+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Started accept request controller
+2024-06-22T07:12:07.564+05:30  INFO 36808 --- [Employee-Management-Portal] [main] c.e.E.M.P.controller.ResourceController  : Ended accept request controller
+2024-06-22T07:12:07.971+05:30  INFO 36808 --- [Employee-Management-Portal] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.employee.Employee.Management.Portal.EmployeeManagementPortalApplicationTests]: EmployeeManagementPortalApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-06-22T07:12:07.982+05:30  INFO 36808 --- [Employee-Management-Portal] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.employee.Employee.Management.Portal.EmployeeManagementPortalApplication for test class com.employee.Employee.Management.Portal.EmployeeManagementPortalApplicationTests
+2024-06-22T07:12:07.986+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2024-06-22T07:12:08.015+05:30  INFO 36808 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : Starting EmployeeManagementPortalApplicationTests using Java 17.0.10 with PID 36808 (started by LEGION in C:\Users\LEGION\Desktop\github_final\Capastone_Project_Employee_Management_Portal\Employee-Management-Portal)
+2024-06-22T07:12:08.015+05:30  INFO 36808 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2024-06-22T07:12:08.231+05:30  INFO 36808 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-22T07:12:08.251+05:30  INFO 36808 --- [Employee-Management-Portal] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 4 JPA repository interfaces.
+2024-06-22T07:12:08.336+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-22T07:12:08.338+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-22T07:12:08.343+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-22T07:12:08.344+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-06-22T07:12:08.411+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@1b710f5a
+2024-06-22T07:12:08.411+05:30  INFO 36808 --- [Employee-Management-Portal] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-06-22T07:12:08.546+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-22T07:12:08.650+05:30  INFO 36808 --- [Employee-Management-Portal] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:12:08.764+05:30  WARN 36808 --- [Employee-Management-Portal] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-22T07:12:08.878+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b54ddf2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@455250ec, org.springframework.security.web.context.SecurityContextHolderFilter@6a8f232, org.springframework.security.web.header.HeaderWriterFilter@6d899de1, org.springframework.web.filter.CorsFilter@11dd4ab9, org.springframework.security.web.authentication.logout.LogoutFilter@58eed8cc, com.employee.Employee.Management.Portal.config.JwtTokenValidator@2172f5d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46af2d0a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67e8d6ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4fe1d9a0, org.springframework.security.web.session.SessionManagementFilter@54554aa2, org.springframework.security.web.access.ExceptionTranslationFilter@61c43075, org.springframework.security.web.access.intercept.AuthorizationFilter@466ab661]
+2024-06-22T07:12:08.971+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-06-22T07:12:08.971+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-06-22T07:12:08.972+05:30  INFO 36808 --- [Employee-Management-Portal] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-06-22T07:12:08.982+05:30  INFO 36808 --- [Employee-Management-Portal] [main] EmployeeManagementPortalApplicationTests : Started EmployeeManagementPortalApplicationTests in 0.996 seconds (process running for 17.558)
+2024-06-22T07:12:09.707+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:12:09.711+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-22T07:12:09.716+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-22T07:12:09.725+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:12:09.726+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-06-22T07:12:09.731+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-06-22T07:12:09.735+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:12:09.736+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-06-22T07:12:09.740+05:30  INFO 36808 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-06-22T07:13:04.618+05:30  INFO 15552 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-22T07:13:04.619+05:30  INFO 15552 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-06-22T07:13:04.621+05:30  INFO 15552 --- [Employee-Management-Portal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
