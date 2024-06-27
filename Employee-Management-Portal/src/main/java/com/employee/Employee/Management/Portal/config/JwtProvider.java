@@ -24,8 +24,10 @@ public class JwtProvider {
         String roles = populateAuthorities(authorities);
 
         String jwt = Jwts.builder()
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(new Date().getTime() + 86400000))
+//                .setIssuedAt(new Date())
+//                .setExpiration(new Date(new Date().getTime() + 86400000))
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) // 5 minutes expiration time
                 .claim("email", auth.getName()) // Setting email in the claim
 //                .claim("name",auth.getName()) // Setting name in the claim
                 .claim("authorities", roles)

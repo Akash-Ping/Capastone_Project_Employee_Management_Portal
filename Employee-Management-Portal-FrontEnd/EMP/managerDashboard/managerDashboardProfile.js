@@ -86,4 +86,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
     }
+
+        // Disable the back and forward buttons
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
 });

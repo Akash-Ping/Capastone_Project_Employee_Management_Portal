@@ -172,4 +172,27 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.clear(); // Clear all localStorage items
         window.location.href = '/login.html'; // Redirect to login page
     });
+
+    
+    function showCustomAlert(message, callback) {
+        const alertOverlay = document.getElementById('custom-alert-overlay');
+        const alertMessage = document.getElementById('custom-alert-message');
+
+        alertMessage.textContent = message;
+        alertOverlay.style.display = 'flex';
+
+        const closeHandler = function() {
+            alertOverlay.style.display = 'none';
+            if (callback) callback();
+        };
+
+        document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
+    }
+
+
+        // Disable the back and forward buttons
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
 });
