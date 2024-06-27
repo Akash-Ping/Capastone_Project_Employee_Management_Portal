@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         loginContainer.style.display = 'none';
         registerContainer.style.display = 'block';
+        history.pushState(null, null, location.href); // Push a new state for register form
     });
 
     // Event listener for going back to the login form from the registration form
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         registerContainer.style.display = 'none';
         loginContainer.style.display = 'block';
+        history.pushState(null, null, location.href); // Push a new state for login form
     });
 
     // Event listener for submitting the login form
@@ -48,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify({ email, password })
         })
-        // .then(response => response.json())
         .then(response => {
             if (!response.ok) {
                 throw new Error('Invalid Credentials');
@@ -57,22 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(data => {
             if (data.message === "Login successful") {
-                // Store the user role in local storage
                 localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem("jwtToken", data.jwt);
-                // localStorage.setItem('sessionUserRole', data.role);
-                // localStorage.setItem('sessionUserName', data.name);
-                // localStorage.setItem('sessionUserEmail', data.email);
                 console.log(data);
-
                 const jwtToken = localStorage.getItem('jwtToken');
-
-                // Decode the JWT token to get the payload
-                 const payload = JSON.parse(atob(jwtToken.split('.')[1]));
-
-    // Extract the user role from the payload
-                const userRole = payload.authorities; // Assuming the role is stored in the token
-    
+                const payload = JSON.parse(atob(jwtToken.split('.')[1]));
+                const userRole = payload.authorities;
 
                 // Redirect based on role
                 switch (userRole) {
@@ -94,9 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => {
             console.error('Error:', error);
-           showCustomAlert('Invalid Credentials');
+            showCustomAlert('Invalid Credentials');
         });
-        // .catch(error => console.error('Error:', error));
     });
 
     // Event listener for submitting the registration form
@@ -114,25 +104,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = document.getElementById('registerPassword').value;
         const confirmPassword = document.getElementById('registerConfirmPassword').value;
 
-            // Validate employee ID format
-    const empIdRegex = /^N\d{3}$/; // Regular expression for "NXXX" format
-    if (!empIdRegex.test(empId)) {
-        showCustomAlert("Employee ID should be in the format 'NXXX'",function(){
-        });
-        return;
-    }
+        const empIdRegex = /^N\d{3}$/;
+        if (!empIdRegex.test(empId)) {
+            showCustomAlert("Employee ID should be in the format 'NXXX'");
+            return;
+        }
 
-       // Validate contact number format (10 digits)
-       const contactNoRegex = /^\d{10}$/; // Regular expression for 10 digits
-       if (!contactNoRegex.test(contactNo)) {
-           showCustomAlert("Contact number should be a 10-digit number.",function(){
-              });
-           return;
-       }
+        const contactNoRegex = /^\d{10}$/;
+        if (!contactNoRegex.test(contactNo)) {
+            showCustomAlert("Contact number should be a 10-digit number.");
+            return;
+        }
 
         if (password !== confirmPassword) {
-            showCustomAlert("Passwords do not match",function(){
-            });
+            showCustomAlert("Passwords do not match");
             return;
         }
 
@@ -147,11 +132,11 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if (data.message === "Admin registered successfully") {
                 showCustomAlert('Registration successful. Please login.');
                 registerContainer.style.display = 'none';
                 loginContainer.style.display = 'block';
+                history.pushState(null, null, location.href); // Push a new state after registration
             } else if (data.message === "Admin already registered") {
                 showCustomAlert('Admin already registered. Please login.');
             } else {
@@ -161,28 +146,22 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error:', error));
     });
 
-    // Redirect to the appropriate dashboard if user is already logged in
-    // const userRole = localStorage.getItem('sessionUserRole');
-
     const jwtToken = localStorage.getItem('jwtToken');
-
-    // Decode the JWT token to get the payload
-     const payload = JSON.parse(atob(jwtToken.split('.')[1]));
-
-// Extract the user role from the payload
-    const userRole = payload.authorities; // Assuming the role is stored in the token
-
-    if (userRole) {
-        switch (userRole) {
-            case 'ADMIN':
-                window.location.href = '/EMP/adminDashboard/adminDashboard.html';
-                break;
-            case 'MANAGER':
-                window.location.href = '/EMP/managerDashboard/managerDashboardProfile.html';
-                break;
-            case 'EMPLOYEE':
-                window.location.href = '/EMP/employeeDashboard/employeeDashboard.html';
-                break;
+    if (jwtToken) {
+        const payload = JSON.parse(atob(jwtToken.split('.')[1]));
+        const userRole = payload.authorities;
+        if (userRole) {
+            switch (userRole) {
+                case 'ADMIN':
+                    window.location.href = '/EMP/adminDashboard/adminDashboard.html';
+                    break;
+                case 'MANAGER':
+                    window.location.href = '/EMP/managerDashboard/managerDashboardProfile.html';
+                    break;
+                case 'EMPLOYEE':
+                    window.location.href = '/EMP/employeeDashboard/employeeDashboard.html';
+                    break;
+            }
         }
     }
 
@@ -201,9 +180,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('custom-alert').querySelector('button').onclick = closeHandler;
     }
 
-        // Disable the back and forward buttons
+    // Disable the back and forward buttons
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
         history.pushState(null, null, location.href);
-        window.onpopstate = function () {
-            history.go(1);
-        };
+    };
 });
